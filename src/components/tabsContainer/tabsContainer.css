@@ -1,0 +1,17 @@
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 55dvw;
+    height: 100dvh;
+
+}
+
+.tabs-interior {
+    margin: 1rem;
+    background-color: blueviolet;
+    width: 95%;
+    height: 90%;
+}
