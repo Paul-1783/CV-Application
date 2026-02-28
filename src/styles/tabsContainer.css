@@ -44,21 +44,18 @@ img {
     box-shadow: 0 0 3px 3px whitesmoke;
 }
 
-.sideMenuButton::after {
+.sideMenuButton:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.sideMenuButton:hover::after {
     content: attr(section-name);
     position: absolute;
     width: 100px;
     height: 70%;
-    left: 95%;
+    left: 110%;
     top: 15%;
-    background: #ccc;
-    border-radius: 5px;
+    background: green;
+    border-radius: 90px;
 }
 
 .info-list {
