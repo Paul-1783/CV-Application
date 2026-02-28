@@ -37,6 +37,7 @@ img {
     margin: 0.1rem auto;
     cursor: pointer;
     position: relative;
+    box-shadow: inset 0 0 14px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sideMenuButton:hover,
@@ -56,6 +57,7 @@ img {
     top: 15%;
     background: green;
     border-radius: 90px;
+    border: 2px solid black;
 }
 
 .info-list {
@@ -64,10 +66,34 @@ img {
     margin: 0 auto;
 }
 
-.info-section {
-    width: 90%;
-    height: 10dvh;
-    background-color: chartreuse;
+.cv-details-input {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.infoSectionButton {}
+.cv-details-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cv-details-form div {
+    height: 10dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cv-details-form label {
+    align-self: flex-start;
+}
