@@ -1,0 +1,6 @@
+.preview-frame {
+    display: inline-block;
+    width: 43dvw;
+    height: 100dvh;
+    background-color: aqua;
+}

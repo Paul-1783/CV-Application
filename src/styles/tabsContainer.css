@@ -1,0 +1,73 @@
+img {
+    max-width: 30px;
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 55dvw;
+    height: 100dvh;
+}
+
+.tabs-interior {
+    display: flex;
+    margin: 1rem;
+    background-color: blueviolet;
+    width: 95%;
+    height: 90%;
+}
+
+#side-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    width: 10%;
+    justify-content: space-around;
+}
+
+.sideMenuButton {
+    background-color: green;
+    border-radius: 5px;
+    width: 100%;
+    height: 300px;
+    margin: 0.1rem auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.sideMenuButton:hover,
+.sideMenuButton:focus {
+    box-shadow: 0 0 3px 3px whitesmoke;
+}
+
+.sideMenuButton:hover::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: attr(section-name);
+    position: absolute;
+    width: 100px;
+    height: 70%;
+    left: 110%;
+    top: 15%;
+    background: green;
+    border-radius: 90px;
+}
+
+.info-list {
+    background-color: crimson;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.info-section {
+    width: 90%;
+    height: 10dvh;
+    background-color: chartreuse;
+}
+
+.infoSectionButton {}

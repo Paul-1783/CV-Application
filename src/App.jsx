@@ -1,13 +1,12 @@
-import { useState } from "react";
 import "./App.css";
+import { PreviewFrame } from "./components/preview/preview";
+import { TabsContainer } from "./components/tabsContainer/tabsContainer";
 
 function App() {
-  const [num, setnum] = useState(0);
   return (
     <>
-      <div>{setnum(4)}</div>
-      <h1></h1>
-      <div className="card"></div>
+      <TabsContainer />
+      <PreviewFrame />
     </>
   );
 }
