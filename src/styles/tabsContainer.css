@@ -34,10 +34,37 @@ img {
     border-radius: 5px;
     width: 100%;
     height: 300px;
+    margin: 0.1rem auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.sideMenuButton:hover,
+.sideMenuButton:focus {
+    box-shadow: 0 0 3px 3px whitesmoke;
+}
+
+.sideMenuButton::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideMenuButton:hover::after {
+    content: attr(section-name);
+    position: absolute;
+    width: 100px;
+    height: 70%;
+    left: 95%;
+    top: 15%;
+    background: #ccc;
+    border-radius: 5px;
 }
 
 .info-list {
     background-color: crimson;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .info-section {
