@@ -40,6 +40,12 @@ img {
     box-shadow: inset 0 0 14px 4px rgba(0, 0, 0, 0.2);
 }
 
+.startButton {
+    box-shadow: none;
+    border-radius: 0px;
+    border-right: none;
+}
+
 .sideMenuButton:hover,
 .sideMenuButton:focus {
     box-shadow: 0 0 3px 3px whitesmoke;
@@ -70,11 +76,15 @@ img {
     width: 100%;
     height: 100%;
     background-color: green;
-    border: 1px solid black;
+    border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.cv-details-input.hidden {
+    display: none;
 }
 
 .cv-details-form {
@@ -96,4 +106,8 @@ img {
 
 .cv-details-form label {
     align-self: flex-start;
+}
+
+.noRightBorder {
+    border-right: none;
 }

@@ -9,6 +9,8 @@ import skillIcon from "./../../assets/skill.png";
 import linkIcon from "./../../assets/links.png";
 import generalIcon from "./../../assets/general.png";
 
+import { useState } from "react";
+
 const sectionNames = [
   "general info",
   "education",
@@ -21,11 +23,33 @@ const sectionNames = [
 ];
 
 export function TabsContainer() {
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+
+  const buttonStyle = {
+    borderRadius: "5px",
+    boxShadow: "inset 0 0 14px 4px rgba(0, 0, 0, 0.2)",
+  };
+
+  const noButtonStyle = { boxShadow: "unset", borderRadius: "0" };
+
   let counter = 0;
   let buttons = document.querySelectorAll(".sideMenuButton");
+  let sections = document.querySelectorAll(".cv-details-input");
   buttons.forEach((sideMenuButton) => {
     sideMenuButton.setAttribute("section-name", sectionNames[counter]);
     counter += 1;
+  });
+
+  sections.forEach((section, index) => {
+    if (index !== activeSectionIndex) {
+      section.classList.add("hidden");
+      buttons[index].classList.remove("noRightBorder");
+      buttons[index].style = { buttonStyle };
+    } else {
+      section.classList.remove("hidden");
+      buttons[index].classList.add("noRightBorder");
+      buttons[index].style = { noButtonStyle };
+    }
   });
 
   return (
@@ -33,33 +57,83 @@ export function TabsContainer() {
       <h1>CV-Creator</h1>
       <main className="tabs-interior">
         <div id="side-menu">
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton startButton"
+            onClick={() => {
+              {
+                setActiveSectionIndex(0);
+                buttons[0].classList.remove("startButton");
+              }
+            }}
+          >
             <img src={generalIcon} alt="general" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(1);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             <img src={educationIcon} alt="education" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(2);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={experienceIcon} alt="experience" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(3);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={languageIcon} alt="language" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(4);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={projectIcon} alt="project" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(5);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={publicationIcon} alt="publication" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(6);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={skillIcon} alt="skill" />
           </button>
-          <button className="sideMenuButton">
+          <button
+            className="sideMenuButton"
+            onClick={() => {
+              setActiveSectionIndex(7);
+              buttons[0].classList.remove("startButton");
+            }}
+          >
             {" "}
             <img src={linkIcon} alt="links" />
           </button>
