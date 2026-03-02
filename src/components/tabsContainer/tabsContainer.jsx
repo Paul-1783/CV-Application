@@ -11,7 +11,7 @@ import generalIcon from "./../../assets/general.png";
 
 import { useState } from "react";
 
-export function TabsContainer() {
+export function TabsContainer({ allInputValues, setAllInputValues }) {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
 
   let buttons = document.querySelectorAll(".sideMenuButton");
@@ -30,6 +30,14 @@ export function TabsContainer() {
       buttons[index].style.boxShadow = "unset";
     }
   });
+
+  function handleInputChange(e) {
+    console.log("E ", e.target.id);
+    setAllInputValues({
+      ...allInputValues,
+      fullName: e.target.value,
+    });
+  }
 
   return (
     <span className="tabs-container">
@@ -133,13 +141,22 @@ export function TabsContainer() {
                 <label htmlFor="fullName" id="full-name">
                   Full Name
                 </label>
-                <input type="text" id="fullName" />
+                <input type="text" id="fullName" onChange={handleInputChange} />
               </div>
               <div className="jobTitle-container">
                 <label htmlFor="jobTitle" id="job-title">
                   job Title
                 </label>
-                <input type="text" id="jobTitle" />
+                <input
+                  type="text"
+                  id="jobTitle"
+                  onChange={(e) => {
+                    setAllInputValues({
+                      ...allInputValues,
+                      jobTitle: e.target.value,
+                    });
+                  }}
+                />
               </div>
               <div className="email-container">
                 <label htmlFor="email" id="email">

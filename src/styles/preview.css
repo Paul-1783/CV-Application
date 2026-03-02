@@ -1,6 +1,28 @@
-.preview-frame {
-    display: inline-block;
-    width: 43dvw;
+.preview {
+    background-color: brown;
     height: 100dvh;
+    width: 45dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.preview-frame {
+    height: 88dvh;
     background-color: aqua;
+    width: 90%;
+}
+
+.preview-buttons {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.preview-buttons button {
+    padding: 0.5rem 1rem;
+    border-radius: 5%;
+    cursor: pointer;
 }
