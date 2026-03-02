@@ -11,44 +11,23 @@ import generalIcon from "./../../assets/general.png";
 
 import { useState } from "react";
 
-const sectionNames = [
-  "general info",
-  "education",
-  "experience",
-  "language",
-  "project",
-  "publication",
-  "skills",
-  "links",
-];
-
 export function TabsContainer() {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
 
-  const buttonStyle = {
-    borderRadius: "5px",
-    boxShadow: "inset 0 0 14px 4px rgba(0, 0, 0, 0.2)",
-  };
-
-  const noButtonStyle = { boxShadow: "unset", borderRadius: "0" };
-
-  let counter = 0;
   let buttons = document.querySelectorAll(".sideMenuButton");
   let sections = document.querySelectorAll(".cv-details-input");
-  buttons.forEach((sideMenuButton) => {
-    sideMenuButton.setAttribute("section-name", sectionNames[counter]);
-    counter += 1;
-  });
 
   sections.forEach((section, index) => {
     if (index !== activeSectionIndex) {
       section.classList.add("hidden");
       buttons[index].classList.remove("noRightBorder");
-      buttons[index].style = { buttonStyle };
+      buttons[index].style.borderRadius = "5px";
+      buttons[index].style.boxShadow = "inset 0 0 14px 4px rgba(0, 0, 0, 0.2)";
     } else {
       section.classList.remove("hidden");
       buttons[index].classList.add("noRightBorder");
-      buttons[index].style = { noButtonStyle };
+      buttons[index].style.borderRadius = "0px";
+      buttons[index].style.boxShadow = "unset";
     }
   });
 
@@ -59,6 +38,7 @@ export function TabsContainer() {
         <div id="side-menu">
           <button
             className="sideMenuButton startButton"
+            section-name={"general info"}
             onClick={() => {
               {
                 setActiveSectionIndex(0);
@@ -70,6 +50,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"education"}
             onClick={() => {
               setActiveSectionIndex(1);
               buttons[0].classList.remove("startButton");
@@ -79,6 +60,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"experience"}
             onClick={() => {
               setActiveSectionIndex(2);
               buttons[0].classList.remove("startButton");
@@ -89,6 +71,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"language"}
             onClick={() => {
               setActiveSectionIndex(3);
               buttons[0].classList.remove("startButton");
@@ -99,6 +82,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"project"}
             onClick={() => {
               setActiveSectionIndex(4);
               buttons[0].classList.remove("startButton");
@@ -109,6 +93,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"publication"}
             onClick={() => {
               setActiveSectionIndex(5);
               buttons[0].classList.remove("startButton");
@@ -119,6 +104,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"skills"}
             onClick={() => {
               setActiveSectionIndex(6);
               buttons[0].classList.remove("startButton");
@@ -129,6 +115,7 @@ export function TabsContainer() {
           </button>
           <button
             className="sideMenuButton"
+            section-name={"links"}
             onClick={() => {
               setActiveSectionIndex(7);
               buttons[0].classList.remove("startButton");
