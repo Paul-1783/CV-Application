@@ -1,6 +1,7 @@
 import "./../../styles/tabsContainer.css";
 
 import { SideMenuButton } from "../sideButton/sideButton";
+import { GeneralForm } from "../generalForm/generalForm";
 
 import educationIcon from "./../../assets/education.png";
 import experienceIcon from "./../../assets/experience.png";
@@ -34,7 +35,6 @@ export function TabsContainer() {
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
- 
         </div>
         <div className="info-list"></div>
       </main>
