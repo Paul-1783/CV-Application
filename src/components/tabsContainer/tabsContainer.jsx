@@ -1,5 +1,7 @@
 import "./../../styles/tabsContainer.css";
 
+import { SideMenuButton } from "../sideButton/sideButton";
+
 import educationIcon from "./../../assets/education.png";
 import experienceIcon from "./../../assets/experience.png";
 import languageIcon from "./../../assets/language.png";
@@ -9,31 +11,30 @@ import skillIcon from "./../../assets/skill.png";
 import linkIcon from "./../../assets/links.png";
 import generalIcon from "./../../assets/general.png";
 
-const sectionNames = [
-  "general info",
-  "education",
-  "experience",
-  "language",
-  "project",
-  "publication",
-  "skills",
-  "links",
+const sectionInfos = [
+  {sectionName : "general info", icon: generalIcon},
+  {sectionName : "education", icon: educationIcon},
+  {sectionName : "experience", icon: experienceIcon},
+  {sectionName : "language", icon: languageIcon},
+  {sectionName : "project", icon: projectIcon},
+  {sectionName : "publication", icon:  publicationIcon},
+  {sectionName : "skills", icon: skillIcon},
+  {sectionName : "links", icon: linkIcon},
 ];
 
 export function TabsContainer() {
-  let counter = 0;
-  let buttons = document.querySelectorAll(".sideMenuButton");
-  buttons.forEach((sideMenuButton) => {
-    sideMenuButton.setAttribute("section-name", sectionNames[counter]);
-    counter += 1;
-  });
+  
+  const sideMenuButtons = sectionInfos.map((info, index) => { 
+   return <SideMenuButton key={index} info={info}/>
+  })
 
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
       <main className="tabs-interior">
         <div id="side-menu">
-          <button className="sideMenuButton">
+          {sideMenuButtons}
+          {/* <button className="sideMenuButton">
             <img src={generalIcon} alt="general" />
           </button>
           <button className="sideMenuButton">
@@ -62,7 +63,7 @@ export function TabsContainer() {
           <button className="sideMenuButton">
             {" "}
             <img src={linkIcon} alt="links" />
-          </button>
+          </button> */}
         </div>
         <div className="info-list"></div>
       </main>

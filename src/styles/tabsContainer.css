@@ -48,7 +48,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    content: attr(section-name);
+    content: attr(name);
     position: absolute;
     width: 100px;
     height: 70%;
