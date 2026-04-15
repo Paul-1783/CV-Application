@@ -34,36 +34,7 @@ export function TabsContainer() {
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
-          {/* <button className="sideMenuButton">
-            <img src={generalIcon} alt="general" />
-          </button>
-          <button className="sideMenuButton">
-            <img src={educationIcon} alt="education" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={experienceIcon} alt="experience" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={languageIcon} alt="language" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={projectIcon} alt="project" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={publicationIcon} alt="publication" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={skillIcon} alt="skill" />
-          </button>
-          <button className="sideMenuButton">
-            {" "}
-            <img src={linkIcon} alt="links" />
-          </button> */}
+ 
         </div>
         <div className="info-list"></div>
       </main>
