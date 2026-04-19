@@ -1,7 +1,9 @@
 import "./../../styles/tabsContainer.css";
 
+import { useState } from "react";
+
 import { SideMenuButton } from "../sideButton/sideButton";
-import { GeneralForm } from "../generalForm/generalForm";
+import  allForms from "../forms/index.js";
 
 import educationIcon from "./../../assets/education.png";
 import experienceIcon from "./../../assets/experience.png";
@@ -23,10 +25,18 @@ const sectionInfos = [
   {sectionName : "links", icon: linkIcon},
 ];
 
+
 export function TabsContainer() {
+  const [buttonNr, setButtonNr]  = useState(8)
+
+
+  function handleClick(z){
+    setButtonNr(z.clickedBtnIndex)
+    console.log(z.clickedBtnIndex, " Button nr ", buttonNr)
+  }
   
   const sideMenuButtons = sectionInfos.map((info, index) => { 
-   return <SideMenuButton key={index} info={info}/>
+   return <SideMenuButton key={index} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
   })
 
   return (
@@ -36,7 +46,7 @@ export function TabsContainer() {
         <div id="side-menu">
           {sideMenuButtons}
         </div>
-        <div className="info-list"></div>
+        <div className="info-list">{allForms[buttonNr]}</div>
       </main>
     </span>
   );

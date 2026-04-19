@@ -1,10 +1,12 @@
  
-export function SideMenuButton({info}) {
+export function SideMenuButton({clickedBtnIndex, info, handleClick}) {
 
-    console.log("info ", info)
-    return(
-         <button className="sideMenuButton" name={info.sectionName}>
-            <img src={info.icon} alt={info.sectionName} />
+
+     return(
+         <button className="sideMenuButton" name={info.sectionName}  onClick={e => {
+            const clickInfo = {...e, clickedBtnIndex: clickedBtnIndex}
+             handleClick(clickInfo)}}>
+            <img src={info.icon} alt={info.sectionName}  />
           </button>
     )
 }
