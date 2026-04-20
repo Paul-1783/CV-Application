@@ -25,18 +25,17 @@ const sectionInfos = [
   {sectionName : "links", icon: linkIcon},
 ];
 
-
 export function TabsContainer() {
-  const [buttonNr, setButtonNr]  = useState(8)
+  const [clickedTopicId, setClickedTopicId] = useState(8)
 
-
-  function handleClick(z){
-    setButtonNr(z.clickedBtnIndex)
-    console.log(z.clickedBtnIndex, " Button nr ", buttonNr)
+  function handleClick(z){ 
+    const newIndex = z.clickedBtnIndex;
+    setClickedTopicId(newIndex)
+    console.log(z.clickedBtnIndex, " Button nr ", clickedTopicId)
   }
   
   const sideMenuButtons = sectionInfos.map((info, index) => { 
-   return <SideMenuButton key={index} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
+    return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
   })
 
   return (
@@ -46,7 +45,7 @@ export function TabsContainer() {
         <div id="side-menu">
           {sideMenuButtons}
         </div>
-        <div className="info-list">{allForms[buttonNr]}</div>
+        <div className="info-list">{allForms[clickedTopicId]}</div>
       </main>
     </span>
   );

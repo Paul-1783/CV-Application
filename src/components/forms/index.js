@@ -1,3 +1,5 @@
+import  "../../styles/tab.css"
+
 import { GeneralForm } from "./generalForm.jsx";
 import  {ExperienceForm } from "./experiencesForm.jsx";
 import {EducationForm} from "./educationForm.jsx";
