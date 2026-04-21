@@ -48,7 +48,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    content: "wakawaka";
+    content: attr(name);
     position: absolute;
     width: 100px;
     height: 70%;

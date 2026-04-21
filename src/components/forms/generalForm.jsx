@@ -15,6 +15,7 @@ export function GeneralForm(){
                 <label htmlFor="email">Email</label>
                 <input type="text" id="email" />
             </div>
+            <button>Save</button>
         </form>
     )
 }
