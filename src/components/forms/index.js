@@ -11,7 +11,6 @@ import { SkillForm} from "./skillsForm.jsx";
 import { EmptyForm } from "./emptyForm.jsx";
 
 
-
 const allForms = [GeneralForm(), EducationForm(), ExperienceForm(), LanguageForm(), ProjectForm(), PublicationForm(), SkillForm(),  LinkForm(), EmptyForm()]
 
 export default allForms
