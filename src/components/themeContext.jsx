@@ -16,7 +16,7 @@ export function ThemeProvider({children}) {
     const [allInformation, setAllInformation] = useState([])  
 
     function handleAddedInfo(e){
-        setAllInformation(previousInfo => ({...previousInfo, test: e}))
+        setAllInformation(previousInfo => ([...previousInfo, e]))
     }
 
     console.log("allInformation ", allInformation)

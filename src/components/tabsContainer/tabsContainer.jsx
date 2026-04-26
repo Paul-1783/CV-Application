@@ -17,7 +17,6 @@ import { PublicationForm} from "./../forms/publicationFrom.jsx";
 import { SkillForm} from "./../forms/skillsForm.jsx";
 import { EmptyForm } from "./../forms/emptyForm.jsx";
 
-
 import educationIcon from "./../../assets/education.png";
 import experienceIcon from "./../../assets/experience.png";
 import languageIcon from "./../../assets/language.png";
@@ -40,11 +39,10 @@ const sectionInfos = [
 
 export function TabsContainer() {
 
-  
-const allForms = [GeneralForm(), EducationForm(), ExperienceForm(), LanguageForm(), ProjectForm(), PublicationForm(), SkillForm(),  LinkForm(), EmptyForm()]
-
   const [clickedTopicId, setClickedTopicId] = useState(8)
-  // const [allInformation, setAllInformation] = useState([])  
+  // const [allInformation, setAllInformation] = useState([]) 
+
+  const allForms = [GeneralForm(), EducationForm(), ExperienceForm(), LanguageForm(), ProjectForm(), PublicationForm(), SkillForm(),  LinkForm(), EmptyForm()]
   
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
@@ -52,10 +50,9 @@ const allForms = [GeneralForm(), EducationForm(), ExperienceForm(), LanguageForm
 
   function handleClick(z){ 
     setClickedTopicId(z.clickedBtnIndex)
-    console.log(z.clickedBtnIndex, " Button nr ", clickedTopicId)
+    // console.log(z.clickedBtnIndex, " Button nr ", clickedTopicId)
   }
  
-
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
