@@ -1,9 +1,7 @@
-
 import { ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext , useState} from 'react';
     
-
-export function EducationForm(){
+export function EducationForm({currentEducationInfo, setCurrentEducactionInfo}){
 
     const [saved, setSaved] = useState(false)
      
@@ -14,7 +12,7 @@ export function EducationForm(){
             const name = e.get("fullName") 
             const phone = e.get("phone")
             const email = e.get("email")
-            handleAddedInfo({name: name, phone: phone, email: email, formTopic  : "general"})
+            handleAddedInfo(currentEducationInfo)
         }  
         setSaved(previousState => !previousState)        
     }
@@ -23,18 +21,37 @@ export function EducationForm(){
     return(
         <form className="inputForm">
             <h2>Education:</h2>
-            <div>
-                <label htmlFor="fullName">Full Name</label>
-                <input type="text" id="fullName" />
-            </div>
-            <div>
-                <label htmlFor="phone">Phone</label>
-                <input type="text" id="phone" />
-            </div>
-            <div>
-                <label htmlFor="email">Email</label>
-                <input type="text" id="email" />
-            </div>
+            <div className="school">
+                <label htmlFor="school-name" className="school-name">
+                  School
+                </label>
+                <input type="text" id="school-name" />
+              </div>
+              <div className="degree">
+                <label htmlFor="degree-name" className="degree-name">
+                  Degree
+                </label>
+                <input type="text" id="degree-name" />
+              </div>
+              <div className="start">
+                <label htmlFor="start-date" className="start-date">
+                  Start
+                </label>
+                <input type="text" id="start-date" />
+              </div>
+              <div className="end">
+                <label htmlFor="end-date" className="end-date">
+                  End
+                </label>
+                <input type="text" id="end-date" />
+              </div>
+              <div className="location">
+                <label htmlFor="location-name" className="location-name">
+                  Location of the school
+                </label>
+                <input type="text" id="location-name" />
+              </div>
+            <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>
     )
 }

@@ -1,6 +1,5 @@
 import React, {useContext, useState, createContext} from 'react'
 
-
 export const ThemeContext = React.createContext(null);
 export const ThemeUpdateContext = React.createContext(null);
 
@@ -22,10 +21,9 @@ export function ThemeProvider({children}) {
             }
             else {
                 return previousInfo.map(entry => {
-                    if(e.formTopic === entry.formTopic) {
+                    if(e.formTopic === entry.formTopic) 
                         for(let property in e)
                             entry[`${property}`] = e[`${property}`]
-                    }
                     return entry;
                 })
             }
@@ -34,7 +32,6 @@ export function ThemeProvider({children}) {
     }
 
     console.log("allInformation ", allInformation)
-
 
       return (
         <ThemeContext.Provider value={allInformation}>

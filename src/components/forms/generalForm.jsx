@@ -3,9 +3,8 @@ import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext, useState} from 'react';
     
 
-export function GeneralForm() {
+export function GeneralForm({currentGeneralInfo, setCurrentGeneralInfo}) {
     const [saved, setSaved] = useState(false)
-    const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
 
     let handleAddedInfo = useContext(ThemeUpdateContext)
     let allInformation = useContext(ThemeContext)
@@ -19,8 +18,6 @@ export function GeneralForm() {
         }  
         setSaved(previousState => !previousState)        
     }
-
-    // console.log(currentGeneralInfo, " test it: ", {...currentGeneralInfo, phone: "smt"})
 
     return (
         <>
@@ -36,19 +33,19 @@ export function GeneralForm() {
                 </div>
                 <div>
                     <label htmlFor="phone">Phone</label>
-                    <input type="text" id="phone"  name="phone" value={currentGeneralInfo.phone}
+                    {!saved ? <input type="text" id="phone"  name="phone" value={currentGeneralInfo.phone}
                     onChange={e => {
                         setCurrentGeneralInfo({...currentGeneralInfo, phone: e.target.value})
                         handleAddedInfo({...currentGeneralInfo, phone: e.target.value})
-                        }} />
+                        }} /> : <span></span>}
                 </div>
                 <div>
                     <label htmlFor="email">Email</label>
-                    <input type="text" id="email" name="email" value={currentGeneralInfo.email} 
+                    {!saved ? <input type="text" id="email" name="email" value={currentGeneralInfo.email} 
                     onChange={e => {
                         setCurrentGeneralInfo({...currentGeneralInfo, email: e.target.value})
                         handleAddedInfo({...currentGeneralInfo, email: e.target.value})
-                        }}/>
+                        }}/> : <span></span>}
                 </div>
                 <button type="submit">{!saved ? "Save" : "Edit"}</button>
             </form>

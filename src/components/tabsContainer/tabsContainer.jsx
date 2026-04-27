@@ -2,10 +2,8 @@ import "./../../styles/tabsContainer.css";
 import  "../../styles/tab.css"
 
 import { useState } from "react";
-
  
 import { SideMenuButton } from "../sideButton/sideButton";
-// import  allForms from "../forms/index.js"
 
 import { GeneralForm } from "./../forms/generalForm.jsx";
 import  {ExperienceForm } from "./../forms/experiencesForm.jsx";
@@ -40,9 +38,26 @@ const sectionInfos = [
 export function TabsContainer() {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
-  // const [allInformation, setAllInformation] = useState([]) 
 
-  const allForms = [GeneralForm(), EducationForm(), ExperienceForm(), LanguageForm(), ProjectForm(), PublicationForm(), SkillForm(),  LinkForm(), EmptyForm()]
+  const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [currentEducationInfo, setCurrentEducactionInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [currentLinks, setCurrentLinks] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [skillSet, setSkillSet] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [publications, setPublications] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [projects, setProjects] = useState({formTopic: "general", name:"", phone:"", email:""})
+
+  const allForms = [< GeneralForm currentGeneralInfo={currentGeneralInfo} setCurrentGeneralInfo={setCurrentGeneralInfo} />, 
+                    < EducationForm  currentEducationInfo={currentEducationInfo} setCurrentEducactionInfo={setCurrentEducactionInfo} />, 
+                    < ExperienceForm currentExperienceInfo={currentExperienceInfo} setCurrentExperienceInfo={setCurrentExperienceInfo} />,
+                     < LanguageForm currentLanguageInfo={currentLanguageInfo} setLanguageInfo={setLanguageInfo} />, 
+                     < ProjectForm  projects={projects} setProjects={setProjects} />, 
+                     < PublicationForm publications={publications} setPublications={setPublications} />, 
+                     < SkillForm skillSet={skillSet} setSkillSet={setSkillSet} />, 
+                     < LinkForm currentLinks={currentLinks} setCurrentLinks={setCurrentLinks} />, 
+                     < EmptyForm />
+                    ]
   
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
@@ -50,7 +65,6 @@ export function TabsContainer() {
 
   function handleClick(z){ 
     setClickedTopicId(z.clickedBtnIndex)
-    // console.log(z.clickedBtnIndex, " Button nr ", clickedTopicId)
   }
  
   return (
