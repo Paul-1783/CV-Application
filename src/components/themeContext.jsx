@@ -16,7 +16,21 @@ export function ThemeProvider({children}) {
     const [allInformation, setAllInformation] = useState([])  
 
     function handleAddedInfo(e){
-        setAllInformation(previousInfo => ([...previousInfo, e]))
+        setAllInformation(previousInfo => {
+             if(previousInfo.length === 0 || !previousInfo.filter(entry => e.formTopic === entry.formTopic)){
+                return [...previousInfo, e]
+            }
+            else {
+                return previousInfo.map(entry => {
+                    if(e.formTopic === entry.formTopic) {
+                        for(let property in e)
+                            entry[`${property}`] = e[`${property}`]
+                    }
+                    return entry;
+                })
+            }
+     
+        })
     }
 
     console.log("allInformation ", allInformation)

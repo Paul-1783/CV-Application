@@ -4,9 +4,9 @@ import { ThemeContext} from '../themeContext.jsx'
 import { useContext } from 'react'
 
 export function PreviewFrame() {
-  const news = useContext(ThemeContext)
+  const allInformation = useContext(ThemeContext)
 
-  console.log("news ", news)
+  console.log("in Preview allinformation:  ", allInformation)
 
   return <span className="preview-frame">
     <h1>test</h1>
