@@ -11,9 +11,8 @@ export function LanguageForm({currentLanguageInfo, setLanguageInfo}){
 
     function handleClick(e) {
         if(!saved){
-            const name = e.get("fullName") 
-            const phone = e.get("phone")
-            const email = e.get("email")
+            const languageName = e.get("language-name") 
+            const languageLevel = e.get("language-level")
             handleAddedInfo(currentLanguageInfo)
         }  
         setSaved(previousState => !previousState)        
@@ -21,19 +20,25 @@ export function LanguageForm({currentLanguageInfo, setLanguageInfo}){
 
 
     return(
-        <form className="inputForm">
+        <form  action={handleClick} className="inputForm">
             <h2>Languages:</h2>
             <div className="name">
                 <label htmlFor="language-name" className="language-name">
                   Name
                 </label>
-                <input type="text" id="language-name" />
+                {!saved ? <input type="text" id="language-name" name="language-name"  onChange={e => {
+                        setLanguageInfo({...currentLanguageInfo, languageName: e.target.value})
+                        handleAddedInfo({...currentLanguageInfo, languageName: e.target.value})
+                        }} /> : <span></span>}
             </div>
             <div className="level">
                 <label htmlFor="language-level" className="language-level">
                   Level
                 </label>
-                <input type="text" id="language-level" />
+                 {!saved ? <input type="text" id="language-level"  name="language-level" onChange={e => {
+                        setLanguageInfo({...currentLanguageInfo, languageLevel: e.target.value})
+                        handleAddedInfo({...currentLanguageInfo, languageLevel: e.target.value})
+                        }} /> : <span></span>}
               </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>

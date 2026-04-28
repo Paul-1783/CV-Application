@@ -9,36 +9,44 @@ export function ExperienceForm({currentExperienceInfo, setCurrentExperienceInfo}
       let allInformation = useContext(ThemeContext)
   
       function handleClick(e) {
-          if(!saved){
-              const name = e.get("fullName") 
-              const phone = e.get("phone")
-              const email = e.get("email")
+          if(!saved)
               handleAddedInfo(currentExperienceInfo)
-          }  
           setSaved(previousState => !previousState)        
       }
   
 
     return(
-        <form action="" className="inputForm">
+        <form  action={handleClick} className="inputForm">
             <h2>Experience:</h2>
               <div className="company">
                 <label htmlFor="company-name" className="company-name">
                   Company Name
                 </label>
-                <input type="text" id="company-name" />
+                {!saved ? <input type="text" id="company-name" name="company-name" value={currentExperienceInfo.companyName} 
+                    onChange={e => {
+                        setCurrentExperienceInfo({...currentExperienceInfo, companyName: e.target.value})
+                        handleAddedInfo({...currentExperienceInfo, companyName: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="job">
                 <label htmlFor="job-title" className="job-title">
                   Job Title
                 </label>
-                <input type="text" id="job-title" />
+                {!saved ? <input type="text" id="job-title" name="job-title" value={currentExperienceInfo.jobTitle} 
+                    onChange={e => {
+                        setCurrentExperienceInfo({...currentExperienceInfo, jobTitle: e.target.value})
+                        handleAddedInfo({...currentExperienceInfo, jobTitle: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="address">
                 <label htmlFor="address-name" className="address-name">
                   Address
                 </label>
-                <input type="text" id="address-name" />
+                {!saved ? <input type="text" id="address-name"  name="address-name" value={currentExperienceInfo.address} 
+                    onChange={e => {
+                        setCurrentExperienceInfo({...currentExperienceInfo, address: e.target.value})
+                        handleAddedInfo({...currentExperienceInfo, address: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="description">
                 <label
@@ -47,10 +55,14 @@ export function ExperienceForm({currentExperienceInfo, setCurrentExperienceInfo}
                 >
                   Description
                 </label>
-                <textarea
+                {!saved ? <textarea
                   name="description-title"
                   id="description-title"
-                ></textarea>
+                value={currentExperienceInfo.descriptionTitle} 
+                    onChange={e => {
+                        setCurrentExperienceInfo({...currentExperienceInfo, descriptionTitle: e.target.value})
+                        handleAddedInfo({...currentExperienceInfo, descriptionTitle: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>

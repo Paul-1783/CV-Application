@@ -21,7 +21,7 @@ export function PublicationForm({publications, setPublications}){
       }
   
     return(
-        <form className="inputForm">
+        <form  action={handleClick} className="inputForm">
             <h2>Publications:</h2>
             <div className="title">
                 <label
@@ -30,19 +30,31 @@ export function PublicationForm({publications, setPublications}){
                 >
                   Title
                 </label>
-                <input type="text" id="publication-title" />
+                {!saved ? <input type="text" id="publication-title" name="publicationTitle" value={publications.publicationTitle}
+                    onChange={e => {
+                        setPublications({...publications, publicationTitle: e.target.value})
+                        handleAddedInfo({...publications, publicationTitle: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="journal">
                 <label htmlFor="journal-name" className="journal-name">
                   Journal
                 </label>
-                <input type="text" id="journal-name" />
+                {!saved ? <input type="text" id="journal-name" name="journalName" value={publications.journalName}
+                    onChange={e => {
+                        setPublications({...publications, journalName: e.target.value})
+                        handleAddedInfo({...publications, journalName: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="date">
                 <label htmlFor="publication-date" className="publication-date">
                   Date
                 </label>
-                <input type="text" id="publication-date" />
+                {!saved ? <input type="text" id="publication-date" name="publicationDate" value={publications.phone}
+                    onChange={e => {
+                        setPublications({...publications, publicationDate: e.target.value})
+                        handleAddedInfo({...publications, publicationDate: e.target.value})
+                        }} /> : <span></span>}
               </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>

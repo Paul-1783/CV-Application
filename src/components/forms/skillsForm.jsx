@@ -9,17 +9,13 @@ export function SkillForm({skillSet, setSkillSet}){
       let allInformation = useContext(ThemeContext)
   
       function handleClick(e) {
-          if(!saved){
-              const name = e.get("fullName") 
-              const phone = e.get("phone")
-              const email = e.get("email")
+          if(!saved)
               handleAddedInfo(skillSet)
-          }  
           setSaved(previousState => !previousState)        
       }
   
     return(
-        <form className="inputForm">
+        <form  action={handleClick} className="inputForm">
             <h2>Skills:</h2>
             <div className="theory">
                 <label
@@ -28,7 +24,11 @@ export function SkillForm({skillSet, setSkillSet}){
                 >
                   Concepts
                 </label>
-                <input type="text" id="theoretical-knowledge" />
+                {!saved ? <input type="text" id="theoretical-knowledge"  name="theoreticalKnowledge" value={skillSet.theoreticalKnowledge} 
+                    onChange={e => {
+                        setSkillSet({...skillSet, theoreticalKnowledge: e.target.value})
+                        handleAddedInfo({...skillSet, theoreticalKnowledge: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="programming">
                 <label
@@ -37,13 +37,21 @@ export function SkillForm({skillSet, setSkillSet}){
                 >
                   programming languages
                 </label>
-                <input type="text" id="programming-languages" />
+                {!saved ? <input type="text" id="programming-languages"  name="programmingLanguages" value={skillSet.programmingLanguages} 
+                    onChange={e => {
+                        setSkillSet({...skillSet, programmingLanguages: e.target.value})
+                        handleAddedInfo({...skillSet, programmingLanguages: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="framework">
                 <label htmlFor="framework-name" className="framework-name">
                   Framework/Library
                 </label>
-                <input type="text" id="framwork-name" />
+                {!saved ? <input type="text" id="framwork-name"  name="framworkName" value={skillSet.framworkName} 
+                    onChange={e => {
+                        setSkillSet({...skillSet, framworkName: e.target.value})
+                        handleAddedInfo({...skillSet, framworkName: e.target.value})
+                        }} /> : <span></span>}
               </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>

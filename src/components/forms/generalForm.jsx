@@ -10,12 +10,8 @@ export function GeneralForm({currentGeneralInfo, setCurrentGeneralInfo}) {
     let allInformation = useContext(ThemeContext)
 
     function handleClick(e) {
-        if(!saved){
-            const name = e.get("fullName") 
-            const phone = e.get("phone")
-            const email = e.get("email")
+        if(!saved)
             handleAddedInfo(currentGeneralInfo)
-        }  
         setSaved(previousState => !previousState)        
     }
 

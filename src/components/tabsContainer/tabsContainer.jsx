@@ -40,16 +40,16 @@ export function TabsContainer() {
   const [clickedTopicId, setClickedTopicId] = useState(8)
 
   const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [currentEducationInfo, setCurrentEducactionInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [currentLinks, setCurrentLinks] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [skillSet, setSkillSet] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [publications, setPublications] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [projects, setProjects] = useState({formTopic: "general", name:"", phone:"", email:""})
+  const [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:""})
+  const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})
+  const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})
+  const [currentLinks, setCurrentLinks] = useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
+  const [skillSet, setSkillSet] = useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:""})
+  const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})
+  const [projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:""})
 
   const allForms = [< GeneralForm currentGeneralInfo={currentGeneralInfo} setCurrentGeneralInfo={setCurrentGeneralInfo} />, 
-                    < EducationForm  currentEducationInfo={currentEducationInfo} setCurrentEducactionInfo={setCurrentEducactionInfo} />, 
+                    < EducationForm  currentEducationInfo={currentEducationInfo} setCurrentEducationInfo={setCurrentEducationInfo} />, 
                     < ExperienceForm currentExperienceInfo={currentExperienceInfo} setCurrentExperienceInfo={setCurrentExperienceInfo} />,
                      < LanguageForm currentLanguageInfo={currentLanguageInfo} setLanguageInfo={setLanguageInfo} />, 
                      < ProjectForm  projects={projects} setProjects={setProjects} />, 

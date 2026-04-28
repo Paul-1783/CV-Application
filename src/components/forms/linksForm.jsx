@@ -11,36 +11,44 @@ export function LinkForm({currentLinks, setCurrentLinks}){
       let allInformation = useContext(ThemeContext)
   
       function handleClick(e) {
-          if(!saved){
-              const name = e.get("fullName") 
-              const phone = e.get("phone")
-              const email = e.get("email")
+          if(!saved)
               handleAddedInfo(currentLinks)
-          }  
           setSaved(previousState => !previousState)        
       }
   
 
     return(
-        <form className="inputForm">
+        <form  action={handleClick} className="inputForm">
             <h2>Links:</h2>
             <div className="linkedin">
                 <label htmlFor="linkedin-profile" className="linkedin-profile">
                   Linkedin
                 </label>
-                <input type="text" id="linkedin-profile" />
+                 {!saved ? <input type="text" id="linkedin-profile"  name="linkedinProfile" value={currentLinks.linkedinProfile} 
+                    onChange={e => {
+                        setCurrentLinks({...currentLinks, linkedinProfile: e.target.value})
+                        handleAddedInfo({...currentLinks, linkedinProfile: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="xing">
                 <label htmlFor="xing-profile" className="xing-profile">
                   Xing
                 </label>
-                <input type="text" id="xing-profile" />
+                 {!saved ? <input type="text" id="xing-profile"  name="xingProfile" value={currentLinks.xingProfile} 
+                    onChange={e => {
+                        setCurrentLinks({...currentLinks, xingProfile: e.target.value})
+                        handleAddedInfo({...currentLinks, xingProfile: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="git">
                 <label htmlFor="git-profile" className="git-profile">
                   Git
                 </label>
-                <input type="text" id="git-profile" />
+                 {!saved ? <input type="text" id="git-profile"  name="fullName" value={currentLinks.fullName} 
+                    onChange={e => {
+                        setCurrentLinks({...currentLinks, fullName: e.target.value})
+                        handleAddedInfo({...currentLinks, fullName: e.target.value})
+                        }} /> : <span></span>}
               </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>

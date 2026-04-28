@@ -11,23 +11,23 @@ export function ProjectForm({projects, setProjects}){
       let allInformation = useContext(ThemeContext)
   
       function handleClick(e) {
-          if(!saved){
-              const name = e.get("fullName") 
-              const phone = e.get("phone")
-              const email = e.get("email")
-              handleAddedInfo(projects)
-          }  
+          if(!saved)
+              handleAddedInfo(projects) 
           setSaved(previousState => !previousState)        
       }
   
     return(
-        <form className="inputForm">
+        <form   action={handleClick} className="inputForm">
             <h2>Projects:</h2>
             <div className="title">
                 <label htmlFor="project-title" className="project-title">
                   Project Name
                 </label>
-                <input type="text" id="project-title" />
+                {!saved ? <input type="text" id="project-title"  name="fullName" value={projects.name} 
+                    onChange={e => {
+                        setProjects({...projects, title: e.target.value})
+                        handleAddedInfo({...projects, title: e.target.value})
+                        }} /> : <span></span>}
               </div>
               <div className="description">
                 <label
@@ -36,7 +36,11 @@ export function ProjectForm({projects, setProjects}){
                 >
                   Description
                 </label>
-                <textarea type="text" id="project-description" />
+                {!saved ? <textarea type="text" id="project-description"  name="fullName" value={projects.name} 
+                    onChange={e => {
+                        setProjects({...projects, projectDescription: e.target.value})
+                        handleAddedInfo({...projects, projectDescription: e.target.value})
+                        }} /> : <span></span>}
             </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>
