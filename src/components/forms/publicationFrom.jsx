@@ -3,10 +3,11 @@ import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext, useState} from 'react';
     
 
-export function PublicationForm({publications, setPublications}){
+export function PublicationForm(){
 
       const [saved, setSaved] = useState(false)
-  
+      const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})
+
       let handleAddedInfo = useContext(ThemeUpdateContext)
       let allInformation = useContext(ThemeContext)
   

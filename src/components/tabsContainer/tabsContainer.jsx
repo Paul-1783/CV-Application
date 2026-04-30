@@ -39,26 +39,18 @@ export function TabsContainer() {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
 
-  const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  const [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:""})
-  const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})
-  const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})
-  const [currentLinks, setCurrentLinks] = useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
-  const [skillSet, setSkillSet] = useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:""})
-  const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})
-  const [projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:""})
+  const [allForms,setAllForms] =  useState([
+                     [< GeneralForm key={0} />], 
+                     [< EducationForm  key={0} />], 
+                     [< ExperienceForm  key={0} />],
+                     [< LanguageForm  key={0} />], 
+                     [< ProjectForm  key={0}  />], 
+                     [< PublicationForm  key={0}  />], 
+                     [< SkillForm  key={0} />], 
+                     [ < LinkForm key={0}  />], 
+                     [< EmptyForm  key={0} />]
+  ])
 
-  const allForms = [< GeneralForm currentGeneralInfo={currentGeneralInfo} setCurrentGeneralInfo={setCurrentGeneralInfo} />, 
-                    < EducationForm  currentEducationInfo={currentEducationInfo} setCurrentEducationInfo={setCurrentEducationInfo} />, 
-                    < ExperienceForm currentExperienceInfo={currentExperienceInfo} setCurrentExperienceInfo={setCurrentExperienceInfo} />,
-                     < LanguageForm currentLanguageInfo={currentLanguageInfo} setLanguageInfo={setLanguageInfo} />, 
-                     < ProjectForm  projects={projects} setProjects={setProjects} />, 
-                     < PublicationForm publications={publications} setPublications={setPublications} />, 
-                     < SkillForm skillSet={skillSet} setSkillSet={setSkillSet} />, 
-                     < LinkForm currentLinks={currentLinks} setCurrentLinks={setCurrentLinks} />, 
-                     < EmptyForm />
-                    ]
-  
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
   })
@@ -66,7 +58,31 @@ export function TabsContainer() {
   function handleClick(z){ 
     setClickedTopicId(z.clickedBtnIndex)
   }
- 
+
+  function handleAddComponent(){
+    let newForm = null;
+    if (clickedTopicId === 1) {
+      newForm = < EducationForm key={allForms[clickedTopicId].length}/>
+    } else if (clickedTopicId === 2) {
+           newForm = < ExperienceForm key={allForms[clickedTopicId].length}/>
+    }else if (clickedTopicId === 3) {
+           newForm = < LanguageForm key={allForms[clickedTopicId].length}/>
+    }else if (clickedTopicId === 4) {
+           newForm = < ProjectForm key={allForms[clickedTopicId].length}/>
+    }else if (clickedTopicId === 5) {
+           newForm = < PublicationForm key={allForms[clickedTopicId].length}/>
+    }else if (clickedTopicId === 6) {
+           newForm = < SkillForm key={allForms[clickedTopicId].length}/>
+    }else if (clickedTopicId === 7) {
+           newForm = < LinkForm key={allForms[clickedTopicId].length}/>
+    } else  {
+      return
+    }
+    setAllForms(  [...allForms, allForms[clickedTopicId][allForms[clickedTopicId].length] = newForm]
+     )
+  }
+
+  console.log("all forms: ", allForms)
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
@@ -74,7 +90,12 @@ export function TabsContainer() {
         <div id="side-menu">
           {sideMenuButtons}
         </div>
-        <div className="info-list">{allForms[clickedTopicId]}</div>
+        <div className="info-list">
+           <button type="text" onClick={handleAddComponent}>Add further eductation</button>
+            <div>
+            {allForms[clickedTopicId]}
+            </div>
+        </div>
       </main>
     </span>
   );

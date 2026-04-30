@@ -1,9 +1,11 @@
 import { ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext , useState} from 'react';
     
-export function EducationForm({currentEducationInfo, setCurrentEducationInfo}){
+export function EducationForm(){
 
     const [saved, setSaved] = useState(false)
+    const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})
+
      
     let handleAddedInfo = useContext(ThemeUpdateContext)
     
@@ -14,7 +16,8 @@ export function EducationForm({currentEducationInfo, setCurrentEducationInfo}){
     } 
 
     return(
-        <form  action={handleClick} className="inputForm">
+      <>
+          <form  action={handleClick} className="inputForm">
             <h2>Education:</h2>
             <div className="school">
                 <label htmlFor="school-name" className="school-name">
@@ -68,5 +71,6 @@ export function EducationForm({currentEducationInfo, setCurrentEducationInfo}){
               </div>
             <button type="submit">{!saved ? "Save" : "Edit"}</button>
         </form>
+      </>
     )
 }

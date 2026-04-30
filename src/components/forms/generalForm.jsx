@@ -3,8 +3,10 @@ import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext, useState} from 'react';
     
 
-export function GeneralForm({currentGeneralInfo, setCurrentGeneralInfo}) {
+export function GeneralForm() {
     const [saved, setSaved] = useState(false)
+    const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
+
 
     let handleAddedInfo = useContext(ThemeUpdateContext)
     let allInformation = useContext(ThemeContext)
@@ -14,7 +16,7 @@ export function GeneralForm({currentGeneralInfo, setCurrentGeneralInfo}) {
             handleAddedInfo(currentGeneralInfo)
         setSaved(previousState => !previousState)        
     }
-
+    console.log("IN GENERAL ")
     return (
         <>
             <form action={handleClick} className="inputForm">

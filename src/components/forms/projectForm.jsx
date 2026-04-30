@@ -3,10 +3,11 @@ import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext, useState} from 'react';
     
 
-export function ProjectForm({projects, setProjects}){
+export function ProjectForm(){
 
       const [saved, setSaved] = useState(false)
-  
+      const [projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:""})
+
       let handleAddedInfo = useContext(ThemeUpdateContext)
       let allInformation = useContext(ThemeContext)
   

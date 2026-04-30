@@ -3,10 +3,11 @@ import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
 import { useContext, useState} from 'react';
     
 
-export function LinkForm({currentLinks, setCurrentLinks}){
+export function LinkForm(){
 
       const [saved, setSaved] = useState(false)
-  
+      const [currentLinks, setCurrentLinks] = useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
+
       let handleAddedInfo = useContext(ThemeUpdateContext)
       let allInformation = useContext(ThemeContext)
   
