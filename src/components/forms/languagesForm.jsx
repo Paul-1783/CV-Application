@@ -1,14 +1,12 @@
 
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+ import { useState} from 'react';
 
 
-export function LanguageForm({currentLanguageInfo, setLanguageInfo}){
+export function LanguageForm({  handleAddedInfo}){
     const [saved, setSaved] = useState(false)
+    const  [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:""})
 
-    let handleAddedInfo = useContext(ThemeUpdateContext)
-    let allInformation = useContext(ThemeContext)
-
+ 
     function handleClick(e) {
         if(!saved){
             const languageName = e.get("language-name") 

@@ -1,12 +1,10 @@
-import { ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext , useState} from 'react';
+ import { useState } from 'react';
     
-export function EducationForm({currentEducationInfo, setCurrentEducationInfo}){
+export function EducationForm({ handleAddedInfo}){
 
     const [saved, setSaved] = useState(false)
-     
-    let handleAddedInfo = useContext(ThemeUpdateContext)
-    
+    const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})
+ 
     function handleClick(e) {
         if(!saved)
             handleAddedInfo(currentEducationInfo)
