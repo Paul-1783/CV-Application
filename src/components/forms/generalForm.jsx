@@ -1,13 +1,11 @@
 
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+ import { useState} from 'react';
     
 
-export function GeneralForm({currentGeneralInfo, setCurrentGeneralInfo}) {
+export function GeneralForm({ handleAddedInfo, oneComponent }) {
     const [saved, setSaved] = useState(false)
+    const [currentGeneralInfo, setCurrentGeneralInfo]  = useState({formTopic: "general", name:"", phone:"", email:"", id: oneComponent.id})
 
-    let handleAddedInfo = useContext(ThemeUpdateContext)
-    let allInformation = useContext(ThemeContext)
 
     function handleClick(e) {
         if(!saved)

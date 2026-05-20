@@ -17,7 +17,7 @@ img {
     margin: 1rem;
     background-color: blueviolet;
     width: 95%;
-    height: 90%;
+    height: 85%;
 }
 
 #side-menu {
@@ -78,3 +78,7 @@ img {
     background-color: green;
 
 }
+
+.add-btn {
+    max-width: 200px;
+ }

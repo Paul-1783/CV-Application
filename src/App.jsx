@@ -1,15 +1,15 @@
 import "./App.css";
+import { useState } from "react";
 import { PreviewFrame } from "./components/preview/preview";
 import { TabsContainer } from "./components/tabsContainer/tabsContainer";
-import { ThemeProvider } from"./components/themeContext.jsx";
 
 function App() {
+  const [allForms, setAllForms] = useState([[],[],[],[],[],[],[],[]])
+  
   return (
     <>
-      <ThemeProvider>
-          <TabsContainer />
-          <PreviewFrame />
-      </ThemeProvider>
+          <TabsContainer allForms={allForms} setAllForms={setAllForms} />
+          <PreviewFrame allForms={allForms}/>
     </>
   );
 }

@@ -1,14 +1,12 @@
 import "./../../styles/preview.css";
 
-import { ThemeContext} from '../themeContext.jsx'
-import { useContext } from 'react'
+ import { useContext } from 'react'
 
-export function PreviewFrame() {
-  const allInformation = useContext(ThemeContext)
-
-  console.log("in Preview allinformation:  ", allInformation)
+export function PreviewFrame({allForms}) {
+ 
+  console.log("in Preview allinformation:  ", allForms)
 
   return <span className="preview-frame">
-    <h1>test</h1>
+    <h1>{allForms.map(arr => arr.map(elem => elem.id))}</h1>
   </span>;
 }

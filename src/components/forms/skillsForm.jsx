@@ -1,13 +1,11 @@
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+import { useState} from 'react';
     
-export function SkillForm({skillSet, setSkillSet}){
+export function SkillForm({handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
+      const [skillSet, setSkillSet]  =  useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:"", id: oneComponent.id })
   
-      let handleAddedInfo = useContext(ThemeUpdateContext)
-      let allInformation = useContext(ThemeContext)
-  
+   
       function handleClick(e) {
           if(!saved)
               handleAddedInfo(skillSet)

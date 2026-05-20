@@ -1,15 +1,13 @@
 
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+import { useState} from 'react';
     
 
-export function PublicationForm({publications, setPublications}){
+export function PublicationForm({handleAddedInfo, oneComponent}){
 
-      const [saved, setSaved] = useState(false)
+    const [saved, setSaved] = useState(false)
+    const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:"", id: oneComponent.id})
   
-      let handleAddedInfo = useContext(ThemeUpdateContext)
-      let allInformation = useContext(ThemeContext)
-  
+   
       function handleClick(e) {
           if(!saved){
               const name = e.get("fullName") 

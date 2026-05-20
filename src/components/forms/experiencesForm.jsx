@@ -1,13 +1,14 @@
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+ import { useState} from 'react';
     
-export function ExperienceForm({currentExperienceInfo, setCurrentExperienceInfo}){
+export function ExperienceForm({  handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
+      const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "", 
+         jobTitle: "", address: "", descriptionTitle: "", id: oneComponent.id})
+
   
-      let handleAddedInfo = useContext(ThemeUpdateContext)
-      let allInformation = useContext(ThemeContext)
   
+   
       function handleClick(e) {
           if(!saved)
               handleAddedInfo(currentExperienceInfo)

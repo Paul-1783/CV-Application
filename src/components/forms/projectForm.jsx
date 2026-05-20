@@ -1,15 +1,12 @@
 
-import { ThemeContext, ThemeUpdateContext } from '../themeContext.jsx'
-import { useContext, useState} from 'react';
+ import { useState } from 'react';
     
+export function ProjectForm({handleAddedInfo, oneComponent}){
 
-export function ProjectForm({projects, setProjects}){
-
-      const [saved, setSaved] = useState(false)
+    const [saved, setSaved] = useState(false)
+    const[projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:"", id: oneComponent.id})
   
-      let handleAddedInfo = useContext(ThemeUpdateContext)
-      let allInformation = useContext(ThemeContext)
-  
+   
       function handleClick(e) {
           if(!saved)
               handleAddedInfo(projects) 
