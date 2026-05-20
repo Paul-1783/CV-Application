@@ -3,9 +3,7 @@
 export function EducationForm({ handleAddedInfo, oneComponent }){
 
     const [saved, setSaved] = useState(false)
-    const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""
-      , id: oneComponent.id
-    })
+    const [currentEducationInfo, setCurrentEducationInfo] = useState(oneComponent)
  
     function handleClick(e) {
         if(!saved)
