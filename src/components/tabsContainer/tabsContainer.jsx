@@ -35,18 +35,15 @@ const sectionInfos = [
   {sectionName : "links", icon: linkIcon},
 ];
 
-export function TabsContainer() {
+export function TabsContainer({allForms, setAllForms}) {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
-  const [allForms, setAllForms] = useState([[],[],[],[],[],[],[],[]])
   const [numberOfForms, setNumberOfForms] = useState(0)
   const loadedRef = useRef(false);
 
   useEffect(() => {
     if (loadedRef.current) return;
     loadedRef.current = true;
-
-    console.log("START ", numberOfForms)
 
     // setAllForms(allForms => [...allForms, allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""})]);
     // setAllForms(allForms => [...allForms, allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})]);
@@ -89,7 +86,6 @@ export function TabsContainer() {
 
   function handleAddedInfo(currentFormContent){
     
-    console.log(currentFormContent, " allForms in handleAddedInfo ", allForms)
 
     setAllForms(prevForms => {
       return prevForms.map(oneTopic =>
@@ -165,9 +161,6 @@ export function TabsContainer() {
                 });
   
   } 
-
-  console.log("forms ", allForms)
-  console.log("numbers of forms outside ", numberOfForms)
 
   return (
     <span className="tabs-container">
