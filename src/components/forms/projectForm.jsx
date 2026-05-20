@@ -1,11 +1,10 @@
 
- import { useState} from 'react';
+ import { useState } from 'react';
     
-
-export function ProjectForm({handleAddedInfo}){
+export function ProjectForm({handleAddedInfo, oneComponent}){
 
     const [saved, setSaved] = useState(false)
-    const[projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:""})
+    const[projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:"", id: oneComponent.id})
   
    
       function handleClick(e) {

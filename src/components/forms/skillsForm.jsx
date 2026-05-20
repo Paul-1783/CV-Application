@@ -1,9 +1,9 @@
 import { useState} from 'react';
     
-export function SkillForm({handleAddedInfo}){
+export function SkillForm({handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
-      const [skillSet, setSkillSet]  =  useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:""})
+      const [skillSet, setSkillSet]  =  useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:"", id: oneComponent.id })
   
    
       function handleClick(e) {

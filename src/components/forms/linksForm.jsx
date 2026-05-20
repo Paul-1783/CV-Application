@@ -2,10 +2,10 @@
  import { useState} from 'react';
     
 
-export function LinkForm({ handleAddedInfo}){
+export function LinkForm({ handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
-      const [currentLinks, setCurrentLinks] =  useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
+      const [currentLinks, setCurrentLinks] =  useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:"", id: oneComponent.id})
 
    
       function handleClick(e) {

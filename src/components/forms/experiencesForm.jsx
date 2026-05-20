@@ -1,9 +1,10 @@
  import { useState} from 'react';
     
-export function ExperienceForm({  handleAddedInfo}){
+export function ExperienceForm({  handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
-      const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})
+      const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "", 
+         jobTitle: "", address: "", descriptionTitle: "", id: oneComponent.id})
 
   
   

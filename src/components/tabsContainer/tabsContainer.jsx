@@ -1,7 +1,7 @@
 import "./../../styles/tabsContainer.css";
 import  "../../styles/tab.css"
 
-import { useState, useEffect, useRef } from "react";
+import { use, useState, useEffect, useRef } from "react";
  
 import { SideMenuButton } from "../sideButton/sideButton";
 
@@ -23,7 +23,6 @@ import publicationIcon from "./../../assets/publication.png";
 import skillIcon from "./../../assets/skill.png";
 import linkIcon from "./../../assets/links.png";
 import generalIcon from "./../../assets/general.png";
-import { use } from "react";
  
 const sectionInfos = [
   {sectionName : "general info", icon: generalIcon},
@@ -40,28 +39,8 @@ export function TabsContainer() {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
   const [allForms, setAllForms] = useState([[],[],[],[],[],[],[],[]])
-  const [numberOfForms, setNumberOfForms] = useState(1)
+  const [numberOfForms, setNumberOfForms] = useState(0)
   const loadedRef = useRef(false);
-  // const [currentGeneralInfo, setCurrentGeneralInfo] = useState({formTopic: "general", name:"", phone:"", email:""})
-  // const [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:""})
-  // const [currentExperienceInfo, setCurrentExperienceInfo] = useState({formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})
-  // const [currentEducationInfo, setCurrentEducationInfo] = useState({formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})
-  // const [currentLinks, setCurrentLinks] = useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
-  // const [skillSet, setSkillSet] = useState({formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName:""})
-  // const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})
-  // const [projects, setProjects] = useState({formTopic: "project", title:"", projectDescription:""})
-
-  // const allForms = [
-                    //  < GeneralForm currentGeneralInfo={currentGeneralInfo} setCurrentGeneralInfo={setCurrentGeneralInfo} />, 
-                    //  < EducationForm  currentEducationInfo={currentEducationInfo} setCurrentEducationInfo={setCurrentEducationInfo} />, 
-                    //  < ExperienceForm currentExperienceInfo={currentExperienceInfo} setCurrentExperienceInfo={setCurrentExperienceInfo} />,
-                    //  < LanguageForm currentLanguageInfo={currentLanguageInfo} setLanguageInfo={setLanguageInfo} />, 
-                    //  < ProjectForm  projects={projects} setProjects={setProjects} />, 
-                    //  < PublicationForm publications={publications} setPublications={setPublications} />, 
-                    //  < SkillForm skillSet={skillSet} setSkillSet={setSkillSet} />, 
-                    //  < LinkForm currentLinks={currentLinks} setCurrentLinks={setCurrentLinks} />, 
-                    //  < EmptyForm />
-  //                   ]
 
   useEffect(() => {
     if (loadedRef.current) return;
@@ -69,51 +48,155 @@ export function TabsContainer() {
 
     console.log("START ", numberOfForms)
 
-    setAllForms([...allForms, allForms[0].push({id: 1})]);
-    setAllForms([...allForms, allForms[1].push({id: 2})]);
-    setAllForms([...allForms, allForms[2].push({id: 3})]);
-    setAllForms([...allForms, allForms[3].push({id: 4})]);    
-    setAllForms([...allForms, allForms[4].push({id: 5})]);
-    setAllForms([...allForms, allForms[5].push({id: 6})]);    
-    setAllForms([...allForms, allForms[6].push({id: 7})]);
-    setAllForms([...allForms, allForms[7].push({id: 8})]);  
+    // setAllForms(allForms => [...allForms, allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""})]);
+    // setAllForms(allForms => [...allForms, allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})]);
+    // setAllForms(allForms => [...allForms, allForms[2].push({id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})]);
+    // setAllForms(allForms => [...allForms, allForms[3].push({id: 4, formTopic: "languages", languageName: "", languageLevel: ""})]);    
+    // setAllForms(allForms => [...allForms, allForms[4].push({id: 5, formTopic: "project", title: "", projectDescription: ""})]);
+    // setAllForms(allForms => [...allForms, allForms[5].push({id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})]);    
+    // setAllForms(allForms => [...allForms, allForms[6].push({id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""})]);
+    // setAllForms(allForms => [...allForms, allForms[7].push({id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})]);  
+
+    // setAllForms(allForms => [...allForms, 
+    //  allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""}),
+    //  allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""}),
+    //  allForms[2].push({id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""}),
+    //  allForms[3].push({id: 4, formTopic: "languages", languageName: "", languageLevel: ""}), 
+    //  allForms[4].push({id: 5, formTopic: "project", title: "", projectDescription: ""}),
+    //  allForms[5].push({id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""}),   
+    //  allForms[6].push({id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""}),
+    //  allForms[7].push({id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
+    // ]);
+
+    setAllForms(allForms => {
+     allForms[0][0] = {id: 1, formTopic: "general", name:"", phone:"", email:""},
+     allForms[1][0] = {id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""},
+     allForms[2][0] = {id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""},
+     allForms[3][0] = {id: 4, formTopic: "languages", languageName: "", languageLevel: ""}, 
+     allForms[4][0] = {id: 5, formTopic: "project", title: "", projectDescription: ""},
+     allForms[5][0] = {id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""},   
+     allForms[6][0] = {id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""},
+     allForms[7][0] = {id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""}
+     return allForms
+    })
 
     setNumberOfForms(number => number + 8)
-
   }, [])
 
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
   })
 
-  function handleAddedInfo(formType){
-
+  function handleAddedInfo(currentFormContent){
+    console.log("allForms in handleAddedInfo ", allForms)
+    setAllForms(prevContents => {
+      if(prevContents[clickedTopicId].length === 0 || !prevContents[clickedTopicId].filter(oneForm => currentFormContent.id === oneForm.id))
+      {
+        return [...prevContents, prevContents[clickedTopicId].push(currentFormContent)]
+      } 
+      else {
+        // let zwischen =  prevContents[clickedTopicId].map(prevContent => {
+        //   if(currentFormContent.id === prevContent.id){
+        //     for(let property in currentFormContent)
+        //       prevContent[`${property}`] = currentFormContent[`${property}`]
+        //     return prevContent;
+        //   }
+        // })
+        // prevContents[clickedTopicId] = zwischen
+        // console.log(" new prevContents ", prevContents[clickedTopicId], "   fullPrevContents  ", prevContents)
+        // return prevContents
+      }
+    })
   }
 
   function handleClick(z){ 
     setClickedTopicId(z.clickedBtnIndex)
   }
       
-  console.log("END ", numberOfForms)
- 
+  function addForm() {
+    if(clickedTopicId === 8) return
+
+    console.log("before numbers ", numberOfForms)
+    setNumberOfForms(numberOfForms =>  numberOfForms + 1)
+    console.log("after  numbers ", numberOfForms)
+
+    clickedTopicId === 0 ? 
+              allForms:
+    clickedTopicId === 1 ? 
+              setAllForms(allForms => {
+                allForms[1][allForms[1].length] = { id: numberOfForms, formTopic: "education", school: "", degree: "", start: "", end: "", location: "" };
+                if(allForms[1].filter(form => form.id === numberOfForms).length === 2)
+                  allForms[1].pop()
+                return allForms
+              }):
+    clickedTopicId === 2 ? 
+              setAllForms(allForms => {
+                allForms[2][allForms[2].length] = { id: numberOfForms, formTopic: "experience", companyName: "", jobTitle: "", address: "", descriptionTitle: ""}
+                if(allForms[2].filter(form => form.id === numberOfForms).length === 2)
+                  allForms[2].pop()
+                return allForms
+              }):
+    clickedTopicId === 3 ? 
+               setAllForms(allForms => {
+                allForms[3][allForms[3].length] = { id: numberOfForms, formTopic: "languages", languageName: "", languageLevel: "" }
+                if(allForms[3].filter(form => form.id === numberOfForms).length === 2)
+                  allForms[3].pop()
+                return allForms
+               }):
+    clickedTopicId === 4 ? 
+              setAllForms(allForms => { 
+                allForms[4][allForms[4].length] = { id: numberOfForms, formTopic: "project", title: "", projectDescription: "" }
+                if(allForms[4].filter(form => form.id === numberOfForms).length === 2)
+                  allForms[4].pop()
+                return allForms
+               }):
+    clickedTopicId === 5 ? 
+                setAllForms(allForms => {
+                  allForms[5][allForms[5].length] = { id: numberOfForms, formTopic: "publication", publicationTitle: "", journalName: "", publicationDate: "" }
+                if(allForms[5].filter(form => form.id === numberOfForms).length === 2)
+                  allForms[5].pop()
+                return allForms
+                }): 
+    clickedTopicId === 6 ? 
+                setAllForms(allForms => {
+                  allForms[6][allForms[6].length] = { id: numberOfForms, formTopic: "skills", theoreticalKnowledge: "", programmingLanguages: "", framworkName: "" }
+                if(allForms[6].filter(form => form.id === numberOfForms).length === 2)
+                    allForms[6].pop()
+                return allForms
+                }):
+                setAllForms(allForms => {
+                   allForms[7][allForms[7].length]= { id: numberOfForms, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""}
+                if(allForms[7].filter(form => form.id === numberOfForms).length === 2)
+                    allForms[7].pop()
+                 return allForms
+                });
+  
+  } 
+
   console.log("forms ", allForms)
+  console.log("numbers of forms outside ", numberOfForms)
 
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
+            <button className="add-btn sideMenuButton" onClick={addForm} >Add Entryform</button>
+
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
         </div>
         <div className="info-list">
-          {
+          { 
             clickedTopicId !== 8 ? 
             allForms[clickedTopicId].map(oneComponent => 
-                { 
-                  clickedTopicId === 0 ? < GeneralForm setAllForms={setAllForms} clickedTopicId={clickedTopicId} handleAddedInfo={handleAddedInfo} /> : 
-                  clickedTopicId === 1 ? < EducationForm setAllForms={setAllForms} clickedTopicId={clickedTopicId} handleAddedInfo={handleAddedInfo} /> : 
-                  < EmptyForm />;
-                }
+              clickedTopicId === 0 ? < GeneralForm  key={oneComponent.id} handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 1 ? < EducationForm   key={oneComponent.id} handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 2 ? < ExperienceForm  key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 3 ? < LanguageForm   key={oneComponent.id} handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 4 ? < ProjectForm   key={oneComponent.id} handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 5 ? < PublicationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 6 ? < SkillForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+                                     < LinkForm  key={oneComponent.id} handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  />  
             ) : < EmptyForm />
           }
         </div>

@@ -2,9 +2,9 @@
  import { useState} from 'react';
     
 
-export function GeneralForm({ handleAddedInfo }) {
+export function GeneralForm({ handleAddedInfo, oneComponent }) {
     const [saved, setSaved] = useState(false)
-    const [currentGeneralInfo, setCurrentGeneralInfo]  = useState({formTopic: "general", name:"", phone:"", email:""})
+    const [currentGeneralInfo, setCurrentGeneralInfo]  = useState({formTopic: "general", name:"", phone:"", email:"", id: oneComponent.id})
 
 
     function handleClick(e) {

@@ -2,9 +2,9 @@
  import { useState} from 'react';
 
 
-export function LanguageForm({  handleAddedInfo}){
+export function LanguageForm({  handleAddedInfo, oneComponent}){
     const [saved, setSaved] = useState(false)
-    const  [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:""})
+    const  [currentLanguageInfo, setLanguageInfo] = useState({formTopic: "languages", languageName:"", languageLevel:"", id: oneComponent.id})
 
  
     function handleClick(e) {

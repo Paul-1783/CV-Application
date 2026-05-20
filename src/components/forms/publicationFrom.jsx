@@ -2,10 +2,10 @@
 import { useState} from 'react';
     
 
-export function PublicationForm({handleAddedInfo}){
+export function PublicationForm({handleAddedInfo, oneComponent}){
 
     const [saved, setSaved] = useState(false)
-    const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})
+    const [publications, setPublications] = useState({formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:"", id: oneComponent.id})
   
    
       function handleClick(e) {
