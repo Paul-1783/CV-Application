@@ -35,59 +35,33 @@ const sectionInfos = [
   {sectionName : "links", icon: linkIcon},
 ];
 
-export function TabsContainer({allForms, setAllForms}) {
+export function TabsContainer({allForms, setAllForms }) {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
-  const [numberOfForms, setNumberOfForms] = useState(0)
   const loadedRef = useRef(false);
+  
+    // useEffect(() => {
+    //   if (loadedRef.current) return;
+    //   loadedRef.current = true;
+  
+      // setAllForms(allForms => [...allForms, allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""})]);
+      // setAllForms(allForms => [...allForms, allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})]);
+      // setAllForms(allForms => [...allForms, allForms[2].push({id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})]);
+      // setAllForms(allForms => [...allForms, allForms[3].push({id: 4, formTopic: "languages", languageName: "", languageLevel: ""})]);    
+      // setAllForms(allForms => [...allForms, allForms[4].push({id: 5, formTopic: "project", title: "", projectDescription: ""})]);
+      // setAllForms(allForms => [...allForms, allForms[5].push({id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})]);    
+      // setAllForms(allForms => [...allForms, allForms[6].push({id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""})]);
+      // setAllForms(allForms => [...allForms, allForms[7].push({id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})]);  
+  
 
-  useEffect(() => {
-    if (loadedRef.current) return;
-    loadedRef.current = true;
-
-    // setAllForms(allForms => [...allForms, allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""})]);
-    // setAllForms(allForms => [...allForms, allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""})]);
-    // setAllForms(allForms => [...allForms, allForms[2].push({id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""})]);
-    // setAllForms(allForms => [...allForms, allForms[3].push({id: 4, formTopic: "languages", languageName: "", languageLevel: ""})]);    
-    // setAllForms(allForms => [...allForms, allForms[4].push({id: 5, formTopic: "project", title: "", projectDescription: ""})]);
-    // setAllForms(allForms => [...allForms, allForms[5].push({id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""})]);    
-    // setAllForms(allForms => [...allForms, allForms[6].push({id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""})]);
-    // setAllForms(allForms => [...allForms, allForms[7].push({id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})]);  
-
-    // setAllForms(allForms => [...allForms, 
-    //  allForms[0].push({id: 1, formTopic: "general", name:"", phone:"", email:""}),
-    //  allForms[1].push({id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""}),
-    //  allForms[2].push({id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""}),
-    //  allForms[3].push({id: 4, formTopic: "languages", languageName: "", languageLevel: ""}), 
-    //  allForms[4].push({id: 5, formTopic: "project", title: "", projectDescription: ""}),
-    //  allForms[5].push({id: 6, formTopic: "publication", publicationTitle:"", journalName:"", publicationDate:""}),   
-    //  allForms[6].push({id: 7, formTopic: "skills", theoreticalKnowledge:"", programmingLanguages:"", framworkName: ""}),
-    //  allForms[7].push({id: 8, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:""})
-    // ]);
-
-    setAllForms(allForms => {
-     allForms[0][0] = {id: 1, formTopic: "general", name:"", phone:"", email:""},
-     allForms[1][0] = {id: 2, formTopic: "education", school: "", degree: "", start: "", end: "", location: ""},
-     allForms[2][0] = {id: 3, formTopic: "experience", companyName: "",  jobTitle: "", address: "", descriptionTitle: ""},
-     allForms[3][0] = {id: 4, formTopic: "languages", languageName: "", languageLevel: ""}, 
-     allForms[4][0] = {id: 5, formTopic: "project", title: "", projectDescription: ""},
-     allForms[5][0] = {id: 6, formTopic: "publication", publicationTitle: "", journalName: "", publicationDate: ""},   
-     allForms[6][0] = {id: 7, formTopic: "skills", theoreticalKnowledge: "", programmingLanguages: "", framworkName: ""},
-     allForms[7][0] = {id: 8, formTopic: "links", fullName: "", linkedinProfile: "", xingProfile: ""}
-     return allForms
-    })
-
-    setNumberOfForms(number => number + 8)
-  }, [])
+    // }, [])
 
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
   })
 
   function handleAddedInfo(currentFormContent){
-    
-
-    setAllForms(prevForms => {
+     setAllForms(prevForms => {
       return prevForms.map(oneTopic =>
         oneTopic.map(formContent => {
             if(formContent.id === currentFormContent.id){

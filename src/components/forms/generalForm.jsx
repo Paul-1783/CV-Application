@@ -27,7 +27,7 @@ export function GeneralForm({ handleAddedInfo, oneComponent }) {
                 </div>
                 <div>
                     <label htmlFor="phone">Phone</label>
-                    {!saved ? <input type="text" id="phone"  name="phone" value={currentGeneralInfo.phone}
+                    {!saved ? <input type="tel" id="phone"  name="phone" value={currentGeneralInfo.phone}
                     onChange={e => {
                         setCurrentGeneralInfo({...currentGeneralInfo, phone: e.target.value})
                         handleAddedInfo({...currentGeneralInfo, phone: e.target.value})
@@ -35,7 +35,7 @@ export function GeneralForm({ handleAddedInfo, oneComponent }) {
                 </div>
                 <div>
                     <label htmlFor="email">Email</label>
-                    {!saved ? <input type="text" id="email" name="email" value={currentGeneralInfo.email} 
+                    {!saved ? <input type="email" id="email" name="email" value={currentGeneralInfo.email} 
                     onChange={e => {
                         setCurrentGeneralInfo({...currentGeneralInfo, email: e.target.value})
                         handleAddedInfo({...currentGeneralInfo, email: e.target.value})
