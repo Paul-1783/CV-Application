@@ -38,7 +38,6 @@ const sectionInfos = [
 export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOfForms}) {
 
   const [clickedTopicId, setClickedTopicId] = useState(8)
-  const loadedRef = useRef(false);
 
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
@@ -123,8 +122,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
-            <button className="add-btn sideMenuButton" onClick={addForm} >Add Entryform</button>
-
+      <button className="add-btn sideMenuButton" onClick={addForm} >Add Entryform</button>
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}

@@ -1,8 +1,8 @@
 import "./App.css";
-import { useState, useEffect, useRef, ref } from "react";
-import { PreviewFrame } from "./components/preview/preview";
-import { TabsContainer } from "./components/tabsContainer/tabsContainer";
-
+import { useState } from "react";
+import { PreviewFrame } from "./components/preview/preview.jsx";
+import { TabsContainer } from "./components/tabsContainer/tabsContainer.jsx";
+ 
 function App() {
   const [allForms, setAllForms] = useState([
     [{id: 1, formTopic: "general", name:"", phone:"", email:""}],
@@ -12,14 +12,15 @@ function App() {
     [{id: 5, formTopic: "project", title: "", projectDescription: ""}],
     [{id: 6, formTopic: "publication", publicationTitle: "", journalName: "", publicationDate: ""}],
     [{id: 7, formTopic: "skills", theoreticalKnowledge: "", programmingLanguages: "", framworkName: ""}],
-    [{id: 8, formTopic: "links", fullName: "", linkedinProfile: "", xingProfile: ""}]])
+    [{id: 8, formTopic: "links", fullName: "", linkedinProfile: "", xingProfile: ""}]
+  ])
 
   const [numberOfForms, setNumberOfForms] = useState(8)
   
   return (
     <>
-          <TabsContainer allForms={allForms} setAllForms={setAllForms} numberOfForms={numberOfForms} setNumberOfForms={setNumberOfForms} />
-          <PreviewFrame allForms={allForms}/>
+      <TabsContainer allForms={allForms} setAllForms={setAllForms} numberOfForms={numberOfForms} setNumberOfForms={setNumberOfForms} />
+      <PreviewFrame allForms={allForms}/>
     </>
   );
 }

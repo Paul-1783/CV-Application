@@ -39,7 +39,7 @@ export function ProjectForm({handleAddedInfo, oneComponent}){
                         handleAddedInfo({...projects, projectDescription: e.target.value})
                         }} /> : <span></span>}
             </div>
-            <button type="submit">{!saved ? "Save" : "Edit"}</button>
+            <button type="submit"  className='save-btn'>{!saved ? "Save" : "Edit"}</button>
         </form>
     )
 }

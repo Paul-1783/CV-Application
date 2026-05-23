@@ -38,7 +38,7 @@ export function LanguageForm({  handleAddedInfo, oneComponent}){
                         handleAddedInfo({...currentLanguageInfo, languageLevel: e.target.value})
                         }} /> : <span></span>}
               </div>
-            <button type="submit">{!saved ? "Save" : "Edit"}</button>
+            <button type="submit"  className='save-btn' >{!saved ? "Save" : "Edit"}</button>
         </form>
     )
 }
