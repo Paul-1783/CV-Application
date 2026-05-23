@@ -1,8 +1,30 @@
+:root{
+    --primary-color : #cfd8d7;
+    --secondary-color: #FAF7F7;
+    --tertiary-color: #453831;
+    --quartery-color: #000;
+    --quintery-color: #B80101;
+
+    color: var(--primary-color)
+}
+
+body {
+    margin: 0;
+    padding:0;
+    background-color: var(--secondary-color);
+}
+
+#root{
+    height: 100dvh;
+}
+
 .inputForm{
-    background-color: grey;
+    background-color: var(--tertiary-color);
+    opacity: 0.9;
 }
 
 .clicked-btn  {
-    background-color: grey;
+    background-color: var(--tertiary-color);
     border-right : none;
+    opacity: 0.9;
  }

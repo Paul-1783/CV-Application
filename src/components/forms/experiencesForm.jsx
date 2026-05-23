@@ -65,7 +65,7 @@ export function ExperienceForm({  handleAddedInfo, oneComponent}){
                         handleAddedInfo({...currentExperienceInfo, descriptionTitle: e.target.value})
                         }} /> : <span></span>}
               </div>
-              <button type="submit">{!saved ? "Save" : "Edit"}</button>
+              <button type="submit"  className='save-btn'>{!saved ? "Save" : "Edit"}</button>
         </form>
     )
 }

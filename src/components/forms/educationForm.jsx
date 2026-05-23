@@ -64,7 +64,7 @@ export function EducationForm({ handleAddedInfo, oneComponent }){
                         handleAddedInfo({...currentEducationInfo, location: e.target.value})
                         }} /> : <span></span>}
               </div>
-            <button type="submit">{!saved ? "Save" : "Edit"}</button>
+            <button type="submit" className='save-btn'>{!saved ? "Save" : "Edit"}</button>
         </form>
     )
 }
