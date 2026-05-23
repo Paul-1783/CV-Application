@@ -3,19 +3,19 @@ export function EducationPreview({school, degree, start, end, location}) {
         <>
          <div className="form-preview">
             <div>
-                <span>school: </span><span>{school}</span>
+                <span>School: </span><span>{school}</span>
             </div>
             <div>
-                <span>degree: </span><span>{degree}</span>
+                <span>Degree: </span><span>{degree}</span>
             </div>
             <div>
-                <span>start: </span><span>{start}</span>
+                <span>Start: </span><span>{start}</span>
             </div>
             <div>
-                <span>end: </span><span>{end}</span>
+                <span>End: </span><span>{end}</span>
             </div>
             <div>
-                <span>location: </span><span>{location}</span>
+                <span>Location: </span><span>{location}</span>
             </div>
          </div>
         </>

@@ -129,7 +129,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
         </div>
         <div className="info-list">
           { 
-            clickedTopicId !== 8 ? 
+            clickedTopicId !== 8 ?
             allForms[clickedTopicId].map(oneComponent => 
               clickedTopicId === 0 ? < GeneralForm  key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 1 ? < EducationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
@@ -139,7 +139,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
               clickedTopicId === 5 ? < PublicationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 6 ? < SkillForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
                                      < LinkForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  />  
-            ) : < EmptyForm />
+            ) : null// < EmptyForm />
           }
         </div>
       </main>

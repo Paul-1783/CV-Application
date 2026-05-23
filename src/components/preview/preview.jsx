@@ -10,10 +10,11 @@ import { SkillsPreview } from "./skillsPreview.jsx"
 import { LinksPreview } from "./linksPreview.jsx";
 
 export function PreviewFrame({allForms}) {
- console.log("HIER")
-  return <span className="preview-frame">
+  
+  return  <div className="preview-container"> <
+      span className="preview-frame">
         <div className="general-info">
-        <h1>{allForms[0][0].name }</h1>
+        <h1>{allForms[0][0].name === "" ? "Name" : allForms[0][0].name}</h1>
         <div className="general-specs">
             <h3>Phone: {allForms[0][0].phone}</h3>
             <h3>Email: {allForms[0][0].email}</h3>
@@ -48,5 +49,6 @@ export function PreviewFrame({allForms}) {
           <h2>Links</h2>
           {allForms[6].map(form => < LinksPreview key={form.id}  fullName={form.fullName} linkedinProfile={form.linkedinProfile} xingProfile={form.xingProfile} />)}
         </div>
-      </span>;
+      </span>
+      </div>;
 }

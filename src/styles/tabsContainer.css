@@ -2,9 +2,14 @@ img {
     max-width: 30px;
 }
 
-h2{
+h1 {
+    color: var(--quartery-color)
+}
+
+h2 {
     margin: 0;
     text-align: center;
+    color: var(--primary-color)
 }
 
 .tabs-container {
@@ -12,7 +17,7 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: var(--secondary-color);
     width: 55dvw;
     height: 100dvh;
 }
@@ -20,7 +25,7 @@ h2{
 .tabs-interior {
     display: flex;
     margin: 1rem;
-    background-color: blueviolet;
+    background-color: var(--secondary-color);
     width: 95%;
     height: 85%;
 }
@@ -35,10 +40,11 @@ h2{
 }
 
 .sideMenuButton {
-    background-color: green;
+    background-color: var(--quintery-color);
+    opacity: 0.8;
     border-radius: 5px;
     width: 100%;
-    height: 300px;
+    height: 290px;
     margin: 0.1rem auto;
     cursor: pointer;
     position: relative;
@@ -55,13 +61,13 @@ h2{
     align-items: center;
     content: attr(name);
     position: absolute;
-    width: 100px;
-    height: 70%;
-    left: 110%;
-    top: 15%;
-    background: green;
-    border-radius: 90px;
-    border: 2px double rgba(red, green, blue, alpha)
+    width: 67px;
+    height: 100%;
+    left: 0%;
+    top: 3%;
+    background: var(--tertiary-color);
+    border-radius: 5px;
+    color: var(--primary-color)
 }
 
 .buttons {
@@ -72,7 +78,7 @@ h2{
 }
 
 .info-list {
-    background-color: crimson;
+    background-color: var(--primary-color);
     width: 90%;
     margin: 0 auto;
 }
@@ -113,6 +119,8 @@ h2{
 }
 
 .add-btn, .save-btn {
+    background-color: var(--quintery-color);
+    color: var(--primary-color);
     width: 10rem;
     height: 2rem;
     max-width: 200px;
