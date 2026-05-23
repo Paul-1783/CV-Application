@@ -14,12 +14,14 @@ export function PreviewFrame({allForms}) {
   return <span className="preview-frame">
         <div className="general-info">
         <h1>{allForms[0][0].name }</h1>
-        <h3>Phone: {allForms[0][0].phone}</h3>
-        <h3>Email: {allForms[0][0].email}</h3>
+        <div className="general-specs">
+            <h3>Phone: {allForms[0][0].phone}</h3>
+            <h3>Email: {allForms[0][0].email}</h3>
+        </div>
         </div>
         <div className="education">
             <h2>Education</h2>
-            {allForms[1].map(form => < EducationPreview key={form.id} school={form.school} degree={form.degree} start={form.start} end={form.end} location={form.location} /> )}
+            {allForms[1].map(form => < EducationPreview  key={form.id} school={form.school} degree={form.degree} start={form.start} end={form.end} location={form.location} /> )}
         </div>
         <div className="experience">
           <h2>Experience</h2>

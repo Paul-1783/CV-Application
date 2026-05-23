@@ -1,6 +1,33 @@
+.general-specs{
+    text-align: left;
+ }
+
 .preview-frame {
     display: inline-block;
     width: 43dvw;
     height: 100dvh;
     background-color: aqua;
+}
+
+.general-info {
+   width: 95%;
+   margin: 0 auto;
+   text-align: center;
+   max-height: 200px; 
+}
+
+.general-info *{
+    margin: 0;
+}
+
+.form-preview{
+    width: 95%;
+    padding: 1em;
+    background-color: gray;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+.form-preview div{
+    margin: 0.5rem;
 }
