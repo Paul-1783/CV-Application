@@ -111,7 +111,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
                   return allForms
                 }):
                 setAllForms(allForms => {
-                  allForms[7][allForms[7].length]= { id: numberOfForms, formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:"" }
+                  allForms[7][allForms[7].length]= { id: numberOfForms, formTopic: "links", git:"",  linkedinProfile:"", xingProfile:"" }
                   if(allForms[7].filter(form => form.id === numberOfForms).length === 2)
                       allForms[7].pop()
                   return allForms

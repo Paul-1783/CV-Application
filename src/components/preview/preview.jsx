@@ -11,8 +11,8 @@ import { LinksPreview } from "./linksPreview.jsx";
 
 export function PreviewFrame({allForms}) {
   
-  return  <div className="preview-container"> <
-      span className="preview-frame">
+  return <div className="preview-container">
+      <span className="preview-frame">
         <div className="general-info">
         <h1>{allForms[0][0].name === "" ? "Name" : allForms[0][0].name}</h1>
         <div className="general-specs">
@@ -20,6 +20,7 @@ export function PreviewFrame({allForms}) {
             <h3>Email: {allForms[0][0].email}</h3>
         </div>
         </div>
+        <div className="multipliable-info">
         <div className="education">
             <h2>Education</h2>
             {allForms[1].map(form => < EducationPreview  key={form.id} school={form.school} degree={form.degree} start={form.start} end={form.end} location={form.location} /> )}
@@ -45,9 +46,14 @@ export function PreviewFrame({allForms}) {
           {allForms[6].map(form => < SkillsPreview key={form.id}   theoreticalKnowledge={form.theoreticalKnowledge} programmingLanguages={form.programmingLanguages} 
           framworkName={form.framworkName} />)}
         </div>
+        </div>
         <div className="links">
           <h2>Links</h2>
-          {allForms[6].map(form => < LinksPreview key={form.id}  fullName={form.fullName} linkedinProfile={form.linkedinProfile} xingProfile={form.xingProfile} />)}
+            <div className="general-specs">
+              <h3><span>Git:</span> <span>{allForms[7][0].git}</span></h3>
+              <h3><span>Linkedin:</span> <span>{allForms[7][0].linkedinProfile}</span></h3>
+              <h3><span>Xing:</span> <span>{allForms[7][0].xingProfile}</span></h3>
+            </div>
         </div>
       </span>
       </div>;

@@ -5,7 +5,7 @@
 export function LinkForm({ handleAddedInfo, oneComponent}){
 
       const [saved, setSaved] = useState(false)
-      const [currentLinks, setCurrentLinks] =  useState({formTopic: "links", fullName:"", linkedinProfile:"", xingProfile:"", id: oneComponent.id})
+      const [currentLinks, setCurrentLinks] =  useState({formTopic: "links", git:"", linkedinProfile:"", xingProfile:"", id: oneComponent.id})
 
    
       function handleClick(e) {
@@ -42,10 +42,10 @@ export function LinkForm({ handleAddedInfo, oneComponent}){
                 <label htmlFor="git-profile" className="git-profile">
                   Git
                 </label>
-                 {!saved ? <input type="text" id="git-profile"  name="fullName" value={currentLinks.fullName} 
+                 {!saved ? <input type="text" id="git-profile"  name="git" value={currentLinks.git} 
                     onChange={e => {
-                        setCurrentLinks({...currentLinks, fullName: e.target.value})
-                        handleAddedInfo({...currentLinks, fullName: e.target.value})
+                        setCurrentLinks({...currentLinks, git: e.target.value})
+                        handleAddedInfo({...currentLinks, git: e.target.value})
                         }} /> : <span></span>}
               </div>
             <button type="submit"  className='save-btn'>{!saved ? "Save" : "Edit"}</button>

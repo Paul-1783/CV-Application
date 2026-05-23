@@ -1,9 +1,9 @@
-export function LinksPreview({fullName, linkedinProfile, xingProfile}){
+export function LinksPreview({git, linkedinProfile, xingProfile}){
     return(
         <>
-            <div className="form-preview">
+            <div className="form-preview" id="links-preview">
                 <div>
-                    <span>Full Name: </span><span>{fullName}</span>
+                    <span>Git: </span><span>{git}</span>
                 </div>
                 <div>
                     <span>Linkedin: </span><span>{linkedinProfile}</span>
