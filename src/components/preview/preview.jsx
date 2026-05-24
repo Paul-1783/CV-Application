@@ -9,6 +9,12 @@ import { PublicationsPreview } from "./publicationsPreview.jsx"
 import { SkillsPreview } from "./skillsPreview.jsx"
 import { LinksPreview } from "./linksPreview.jsx";
 
+import gitIcon from "./../../icons/git.png";
+import xingIcon from "./../../icons/xing.png"
+import linkedinIcon from "./../../icons/linkedin.png"
+import phone from "./../../icons/cell-phone.png"
+import email from "./../../icons/email.png"
+
 export function PreviewFrame({allForms}) {
   
   return <div className="preview-container">
@@ -16,8 +22,8 @@ export function PreviewFrame({allForms}) {
         <div className="general-info">
           <h1>{allForms[0][0].name === "" ? "Name" : allForms[0][0].name}</h1>
           <div className="general-specs">
-              <h3>Phone: {allForms[0][0].phone}</h3>
-              <h3>Email: {allForms[0][0].email}</h3>
+              <h3><img src={phone} alt="Cell Phone" /> {allForms[0][0].phone}</h3>
+              <h3><img src={email} alt="Email" /> {allForms[0][0].email}</h3>
           </div>
         </div>
         <div className="multipliable-info">
@@ -50,9 +56,9 @@ export function PreviewFrame({allForms}) {
         <div className="links">
           <h2>Links</h2>
             <div className="general-specs">
-              <h3><span>Git:</span> <span>{allForms[7][0].git}</span></h3>
-              <h3><span>Linkedin:</span> <span>{allForms[7][0].linkedinProfile}</span></h3>
-              <h3><span>Xing:</span> <span>{allForms[7][0].xingProfile}</span></h3>
+              <h3><span><img src={gitIcon} alt="git" /></span> <span>{allForms[7][0].git}</span></h3>
+              <h3><span><img src={linkedinIcon} alt="linkedin" /></span> <span>{allForms[7][0].linkedinProfile}</span></h3>
+              <h3><span><img src={xingIcon} alt="xing" /></span> <span>{allForms[7][0].xingProfile}</span></h3>
             </div>
         </div>
       </span>
