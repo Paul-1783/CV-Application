@@ -35,9 +35,9 @@ const sectionInfos = [
   {sectionName : "links", icon: linkIcon},
 ];
 
-export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOfForms}) {
+export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOfForms, clearAll}) {
 
-  const [clickedTopicId, setClickedTopicId] = useState(8)
+  const [clickedTopicId, setClickedTopicId] = useState(0)
 
   const sideMenuButtons = sectionInfos.map((info, index) => { 
     return <SideMenuButton key={index} newClassName={clickedTopicId === index ? "clicked-btn": ""} info={info} handleClick={handleClick} clickedBtnIndex={index}/>
@@ -109,21 +109,24 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
                   return allForms
                 }):
                 allForms  
-  } console.log(clickedTopicId)
+  } 
+
 
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
-      <button className="add-btn sideMenuButton" onClick={addForm} style={{visibility: clickedTopicId === 7 || clickedTopicId === 0 ? "hidden": "visible"}} >Add Entry</button>
+      <div className="content-btns">
+        <button className="add-btn sideMenuButton" onClick={addForm} style={{visibility: clickedTopicId === 7 || clickedTopicId === 0 ? "hidden": "visible"}} >Add Entry</button>
+        <button className="add-btn sideMenuButton" onClick={clearAll} >Clear All</button>
+      </div>
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
         </div>
         <div className="info-list">
           { 
-            clickedTopicId !== 8 ?
             allForms[clickedTopicId].map(oneComponent => 
-              clickedTopicId === 0 ? < GeneralForm  key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
+              clickedTopicId === 0 ? < GeneralForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}  oneComponent={oneComponent} /> : 
               clickedTopicId === 1 ? < EducationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 2 ? < ExperienceForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 3 ? < LanguageForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
@@ -131,7 +134,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
               clickedTopicId === 5 ? < PublicationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 6 ? < SkillForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
                                      < LinkForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  />  
-            ) : < GeneralForm  key={0}  handleAddedInfo={handleAddedInfo}   oneComponent={allForms[0][0]}  />// < EmptyForm />
+            ) 
           }
         </div>
       </main>

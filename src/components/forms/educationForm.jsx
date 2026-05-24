@@ -8,11 +8,11 @@ export function EducationForm({ handleAddedInfo, oneComponent }){
     function handleClick(e) {
         if(!saved)
             handleAddedInfo(currentEducationInfo)
-        setSaved(previousState => !previousState)        
-    } 
+        setSaved(previousState => !previousState)
+    }
 
     return(
-        <form  action={handleClick} className="inputForm">
+        <form action={handleClick} className="inputForm">
             <h2>Education:</h2>
             <div className="school">
                 <label htmlFor="school-name" className="school-name">

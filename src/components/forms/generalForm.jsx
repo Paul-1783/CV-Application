@@ -2,7 +2,7 @@
  import { useState} from 'react';
     
 
-export function GeneralForm({ handleAddedInfo, oneComponent }) {
+export function GeneralForm({ handleAddedInfo, oneComponent, }) {
     const [saved, setSaved] = useState(false)
     const [currentGeneralInfo, setCurrentGeneralInfo]  = useState({formTopic: "general", name:"", phone:"", email:"", id: oneComponent.id})
 
@@ -13,6 +13,7 @@ export function GeneralForm({ handleAddedInfo, oneComponent }) {
         setSaved(previousState => !previousState)        
     }
 
+ 
     return (
         <>
             <form action={handleClick} className="inputForm">
@@ -44,5 +45,5 @@ export function GeneralForm({ handleAddedInfo, oneComponent }) {
                 <button type="submit"  className='save-btn' >{!saved ? "Save" : "Edit"}</button>
             </form>
         </>
-        )
+    )
 }

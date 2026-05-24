@@ -151,6 +151,15 @@ h2 {
         var(--quartery-color),
         var(--quintery-color)
     );
-    background-size: 600%; 
+    background-size: 600%;
     filter: blur(3px);
+ }
+
+ .content-btns{
+    display: flex;
+    align-items: center;
+ }
+
+ .content-btns *{
+         margin-right: 2rem;
  }
