@@ -33,6 +33,7 @@ body {
     padding:0;
     background-color: var(--secondary-color);
     font-family: 'agdasimaregular', 'agdasimaregular';
+    font-size: 20px;
 }
 
 #root{

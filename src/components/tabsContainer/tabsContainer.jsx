@@ -66,8 +66,6 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
 
     setNumberOfForms(numberOfForms => numberOfForms + 1)
 
-    clickedTopicId === 0 ? 
-              allForms:
     clickedTopicId === 1 ? 
               setAllForms(allForms => {
                 allForms[1][allForms[1].length] = { id: numberOfForms, formTopic: "education", school: "", degree: "", start: "", end: "", location: "" };
@@ -110,19 +108,13 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
                       allForms[6].pop()
                   return allForms
                 }):
-                setAllForms(allForms => {
-                  allForms[7][allForms[7].length]= { id: numberOfForms, formTopic: "links", git:"",  linkedinProfile:"", xingProfile:"" }
-                  if(allForms[7].filter(form => form.id === numberOfForms).length === 2)
-                      allForms[7].pop()
-                  return allForms
-                });
-  
+                allForms  
   } 
 
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
-      <button className="add-btn sideMenuButton" onClick={addForm} >Add Entryform</button>
+      <button className="add-btn sideMenuButton" onClick={addForm} >Add Entry</button>
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
