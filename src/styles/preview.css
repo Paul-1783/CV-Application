@@ -67,6 +67,10 @@
     color: var(--quartery-color)
 }
 
+.links{
+    max-height: 15dvh;
+}
+
 .links, .links h2 {
     background-color: var(--quartery-color);
     width: 100%;
@@ -78,9 +82,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 1rem 2rem 3rem;
+    padding: 0;
     h3{
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
+}
+
+.links .general-specs h3, .links .general-specs h2{
+    margin: 0 auto;
 }
