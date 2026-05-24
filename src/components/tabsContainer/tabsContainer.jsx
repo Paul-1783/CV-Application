@@ -109,12 +109,12 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
                   return allForms
                 }):
                 allForms  
-  } 
+  } console.log(clickedTopicId)
 
   return (
     <span className="tabs-container">
       <h1>CV-Creator</h1>
-      <button className="add-btn sideMenuButton" onClick={addForm} >Add Entry</button>
+      <button className="add-btn sideMenuButton" onClick={addForm} style={{visibility: clickedTopicId === 7 || clickedTopicId === 0 ? "hidden": "visible"}} >Add Entry</button>
       <main className="tabs-interior">
         <div id="side-menu">
           {sideMenuButtons}
@@ -131,7 +131,7 @@ export function TabsContainer({allForms, setAllForms, numberOfForms, setNumberOf
               clickedTopicId === 5 ? < PublicationForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
               clickedTopicId === 6 ? < SkillForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  /> : 
                                      < LinkForm   key={oneComponent.id}  handleAddedInfo={handleAddedInfo}   oneComponent={oneComponent}  />  
-            ) : null// < EmptyForm />
+            ) : < GeneralForm  key={0}  handleAddedInfo={handleAddedInfo}   oneComponent={allForms[0][0]}  />// < EmptyForm />
           }
         </div>
       </main>
