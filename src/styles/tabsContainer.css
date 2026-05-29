@@ -1,5 +1,8 @@
-img {
-    max-width: 30px;
+img{
+  background: var(--quintery-color);
+  max-width: 30px;
+  border-radius: 25dvh;
+  opacity: 0.8;
 }
 
 h1 {
@@ -52,7 +55,7 @@ h2 {
 
 .sideMenuButton:hover,
 .sideMenuButton:focus {
-    box-shadow: 0 0 3px 3px whitesmoke;
+    box-shadow: 0 0 6px 6px var(--quartery-color);
 }
 
 .sideMenuButton:hover::after {
@@ -70,23 +73,10 @@ h2 {
     color: var(--primary-color)
 }
 
-.buttons {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
-
 .info-list {
     background-color: var(--primary-color);
     width: 90%;
     margin: 0 auto;
-}
-
-.info-section {
-    width: 90%;
-    height: 10dvh;
-    background-color: chartreuse;
 }
 
 .inputForm {
@@ -118,48 +108,46 @@ h2 {
     }
 }
 
-.add-btn, .save-btn {
-    background-color: var(--quintery-color);
-    font-size: 18px;
-    padding: 15px 40px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: var(--quartery-color);
-    max-width: 200px;
-    max-height: 4rem;
-    position: relative;
-    z-index: inherit;
-    border-radius: 12px;
- }
-
- .add-btn::after, .save-btn::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.save-btn {
+    width: 20dvh;
+    background-color: var(--quartery-color);
     color: var(--secondary-color);
-    left: 0;
-    top: 0;
-    border-radius: 12px;
-    background: linear-gradient(
-        45deg, 
-        var( --primary-color),
-        var(--secondary-color),
-        var(--tertiary-color),
-        var(--quartery-color),
-        var(--quintery-color)
-    );
-    background-size: 600%;
-    filter: blur(3px);
+    border: none;
+    padding: 1em 2.5em;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* .save-btn::before,
+.save-btn::after {
+        content: "";
+        position: absolute;
+        inset: -0.1rem;
+        z-index: -1;
+        background: conic-gradient(from var(--gradient-angle), var(--secondary-color), var(--tertiary-color), 
+        var(--quartery-color), var(--quintery-color), var(--quartery-color));
+        border-radius: inherit;
+        animation: rotation 20s linear infinite;
+}
+
+.save-btn:after {
+    filter: blur(3.5rem);
+} */
+
+.save-btn:hover {
+    box-shadow: 3px 3px 10px black,
+    -3px -3px 10px black;
  }
 
  .content-btns{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 80px;
  }
 
- .content-btns *{
-         margin-right: 2rem;
+ .content-btns * {
+    margin-right: 2rem;
  }

@@ -20,7 +20,7 @@ function App() {
   const [numberOfForms, setNumberOfForms] = useState(8)
   
   function clearAll(){
-    setAllForms(startArray)
+    setAllForms(() => startArray)
   }
 
 

@@ -1,6 +1,3 @@
-img{
-    background: var(--secondary-color);
-}
 
 .general-specs{
     text-align: left;
@@ -38,14 +35,18 @@ img{
 }
 
 .general-info {
-   width: 100%;
-   background-color: var(--quartery-color);
-   color: var(--primary-color);
-   margin: 0 auto 2dvh;
-   padding-bottom: 2dvh;
-   text-align: center;
-   max-height: 200px; 
-   border-radius: 5px;
+  display: flex;
+  width: 100%;
+  height: 15dvh;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--quartery-color);
+  color: var(--primary-color);
+  margin: 0 auto 2dvh;
+  padding-bottom: 2dvh;
+  text-align: center;
+  max-height: 200px; 
+  border-radius: 5px;
 }
 
 .general-info *{
@@ -72,7 +73,12 @@ img{
 }
 
 .links{
-    max-height: 15dvh;
+  display: flex;
+  width: 100%;
+  height: 25dvh;
+  flex-direction: column;
+  justify-content: space-around;
+    
 }
 
 .links, .links h2 {
